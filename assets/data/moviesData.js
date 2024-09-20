@@ -4,8 +4,9 @@ const moviesData = [
         "type": "Movie",
         "duration": "1h 37m",
         "genre": "Drama",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "1",
     },
     {
         "title": "21 Jump Street",
@@ -13,7 +14,8 @@ const moviesData = [
         "duration": "1h 50m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "2",
     },
     {
         "title": "8 Apellidos Marroquíes",
@@ -21,7 +23,8 @@ const moviesData = [
         "duration": "1h 40m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "3",
     },
     {
         "title": "A Quiet Place Day One",
@@ -29,7 +32,8 @@ const moviesData = [
         "duration": "1h 39m",
         "genre": "Thriller",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "4",
     },
     {
         "title": "Acero Puro",
@@ -37,15 +41,17 @@ const moviesData = [
         "duration": "2h 7m",
         "genre": "Sci-Fi",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "5",
     },
     {
         "title": "Ahsoka",
         "type": "Series",
         "duration": "8 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "6",
     },
     {
         "title": "AI: Artificial Intelligence",
@@ -53,15 +59,17 @@ const moviesData = [
         "duration": "2h 26m",
         "genre": "Sci-Fi",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "7",
     },
     {
         "title": "Alicia En El País De Las Maravillas 1 y 2",
         "type": "Movie",
         "duration": "3h",
         "genre": "Fantasy",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "8",
     },
     {
         "title": "Arcane",
@@ -69,7 +77,8 @@ const moviesData = [
         "duration": "9 ep",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "9",
     },
     {
         "title": "Arcane Season 2",
@@ -77,7 +86,8 @@ const moviesData = [
         "duration": "TBA",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "10",
     },
     {
         "title": "Arthur",
@@ -85,7 +95,8 @@ const moviesData = [
         "duration": "1h 48m",
         "genre": "Drama",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "11",
     },
     {
         "title": "Baby Driver",
@@ -93,7 +104,8 @@ const moviesData = [
         "duration": "1h 53m",
         "genre": "Action",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "12",
     },
     {
         "title": "Babylon",
@@ -101,7 +113,8 @@ const moviesData = [
         "duration": "3h 9m",
         "genre": "Comedy; Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "13",
     },
     {
         "title": "Bad Boys 1, 2 y 3",
@@ -109,7 +122,8 @@ const moviesData = [
         "duration": "6h",
         "genre": "Action",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "14",
     },
     {
         "title": "Bad Boys Ride Or Die",
@@ -117,7 +131,8 @@ const moviesData = [
         "duration": "1h 55m",
         "genre": "Action",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "15",
     },
     {
         "title": "Barbie",
@@ -125,7 +140,8 @@ const moviesData = [
         "duration": "1h 54m",
         "genre": "Comedy",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "16",
     },
     {
         "title": "Battleship",
@@ -133,7 +149,8 @@ const moviesData = [
         "duration": "2h 11m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "17",
     },
     {
         "title": "Birdbox",
@@ -141,7 +158,8 @@ const moviesData = [
         "duration": "2h 4m",
         "genre": "Thriller",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "18",
     },
     {
         "title": "Blade Runner",
@@ -149,7 +167,8 @@ const moviesData = [
         "duration": "1h 57m",
         "genre": "Sci-Fi",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "19",
     },
     {
         "title": "Break Point",
@@ -157,7 +176,8 @@ const moviesData = [
         "duration": "10 ep",
         "genre": "Documentary",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "20",
     },
     {
         "title": "Breaking Bad",
@@ -165,7 +185,8 @@ const moviesData = [
         "duration": "62 ep",
         "genre": "Thriller",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "21",
     },
     {
         "title": "Bullet Train",
@@ -173,7 +194,8 @@ const moviesData = [
         "duration": "2h 7m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "22",
     },
     {
         "title": "Bumblebee",
@@ -181,7 +203,8 @@ const moviesData = [
         "duration": "1h 54m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "23",
     },
     {
         "title": "Campeonex",
@@ -189,7 +212,8 @@ const moviesData = [
         "duration": "1h 47m",
         "genre": "Comedy",
         "platform": "Max",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "24",
     },
     {
         "title": "Carrie",
@@ -197,15 +221,17 @@ const moviesData = [
         "duration": "1h 38m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "25",
     },
     {
         "title": "Cars On The Road  (Ka-Chow)",
         "type": "Series",
         "duration": "9 ep",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "26",
     },
     {
         "title": "Cazafantasmas: Imperio Helado",
@@ -213,7 +239,8 @@ const moviesData = [
         "duration": "1h 55m",
         "genre": "Comedy",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "27",
     },
     {
         "title": "Cementerio De Animales",
@@ -221,23 +248,26 @@ const moviesData = [
         "duration": "1h 43m",
         "genre": "Horror",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "28",
     },
     {
         "title": "Coco",
         "type": "Movie",
         "duration": "1h 45m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "29",
     },
     {
         "title": "Community",
         "type": "Series",
         "duration": "110 ep",
         "genre": "Comedy",
-        "platform": "Prime; Disney+",
-        "status": "Watching"
+        "platform": "Prime; Disneyplus",
+        "status": "Watching",
+        "id": "30",
     },
     {
         "title": "Cómo Entrenar A Tu Dragon",
@@ -245,7 +275,8 @@ const moviesData = [
         "duration": "4h",
         "genre": "Animation",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "31",
     },
     {
         "title": "Crazy Rich Asians",
@@ -253,7 +284,8 @@ const moviesData = [
         "duration": "2h",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "32",
     },
     {
         "title": "Crepúsculo Saga",
@@ -261,15 +293,17 @@ const moviesData = [
         "duration": "2h 2m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "33",
     },
     {
         "title": "Cruella",
         "type": "Movie",
         "duration": "2h 14m",
         "genre": "Drama",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "34",
     },
     {
         "title": "Cry Macho",
@@ -277,7 +311,8 @@ const moviesData = [
         "duration": "1h 44m",
         "genre": "Drama",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "35",
     },
     {
         "title": "Dark",
@@ -285,23 +320,26 @@ const moviesData = [
         "duration": "26 ep",
         "genre": "Sci-Fi",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "36",
     },
     {
         "title": "Deadpool y Lobezno",
         "type": "Movie",
         "duration": "2h 7m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "37",
     },
     {
         "title": "Doctor Strange : Multiverse Of Madness",
         "type": "Movie",
         "duration": "2h 6m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "38",
     },
     {
         "title": "Doctor Sueño",
@@ -309,7 +347,8 @@ const moviesData = [
         "duration": "2h 32m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "39",
     },
     {
         "title": "Documental Roger Federer",
@@ -317,7 +356,8 @@ const moviesData = [
         "duration": "1h 28m",
         "genre": "Biography",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "40",
     },
     {
         "title": "Dos Rubias De Pelo En Pecho",
@@ -325,15 +365,17 @@ const moviesData = [
         "duration": "1h 49m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "41",
     },
     {
         "title": "Eduardo Manostijeras",
         "type": "Movie",
         "duration": "1h 45m",
         "genre": "Drama",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "42",
     },
     {
         "title": "El Aviador",
@@ -341,7 +383,8 @@ const moviesData = [
         "duration": "2h 50m",
         "genre": "Biography",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "43",
     },
     {
         "title": "El Código Enigma",
@@ -349,7 +392,8 @@ const moviesData = [
         "duration": "1h 53m",
         "genre": "Biography",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "44",
     },
     {
         "title": "El Gato Con Botas",
@@ -357,7 +401,8 @@ const moviesData = [
         "duration": "1h 42m",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "45",
     },
     {
         "title": "El Juego De Ender",
@@ -365,15 +410,17 @@ const moviesData = [
         "duration": "1h 54m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "46",
     },
     {
         "title": "El Llanero Solitario",
         "type": "Movie",
         "duration": "2h 29m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "47",
     },
     {
         "title": "El Niño Del Pijama De Rayas",
@@ -381,7 +428,8 @@ const moviesData = [
         "duration": "1h 34m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "48",
     },
     {
         "title": "El Padrino 1, 2 y 3",
@@ -389,23 +437,26 @@ const moviesData = [
         "duration": "8h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "49",
     },
     {
         "title": "El Planeta De Los Simios",
         "type": "Movie",
         "duration": "7h",
         "genre": "Sci-Fi",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "50",
     },
     {
         "title": "El Reino Del Planeta De Los Simios",
         "type": "Movie",
         "duration": "2h 25m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "51",
     },
     {
         "title": "El Resplandor",
@@ -413,15 +464,17 @@ const moviesData = [
         "duration": "2h 26m",
         "genre": "Thriller",
         "platform": "Max",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "52",
     },
     {
         "title": "Elemental",
         "type": "Movie",
         "duration": "1h 49m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "53",
     },
     {
         "title": "Elvis",
@@ -429,15 +482,17 @@ const moviesData = [
         "duration": "2h 39m",
         "genre": "Drama",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "54",
     },
     {
         "title": "Encanto",
         "type": "Movie",
         "duration": "1h 49m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "55",
     },
     {
         "title": "Erase Una Vez En Hollywood",
@@ -445,7 +500,8 @@ const moviesData = [
         "duration": "2h 40m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "56",
     },
     {
         "title": "Escape Room 1 y 2",
@@ -453,7 +509,8 @@ const moviesData = [
         "duration": "3h",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "57",
     },
     {
         "title": "Extracción 1 y 2",
@@ -461,7 +518,8 @@ const moviesData = [
         "duration": "4h",
         "genre": "Action",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "58",
     },
     {
         "title": "Fast And Furious Saga",
@@ -469,7 +527,8 @@ const moviesData = [
         "duration": "20h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watching"
+        "status": "Watching",
+        "id": "59",
     },
     {
         "title": "Fear Street 1, 2 y 3",
@@ -477,7 +536,8 @@ const moviesData = [
         "duration": "5h",
         "genre": "Thriller",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "60",
     },
     {
         "title": "Fiebre Del Sabado Noche",
@@ -485,7 +545,8 @@ const moviesData = [
         "duration": "1h 58m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "61",
     },
     {
         "title": "Fly Me To The Moon",
@@ -493,15 +554,17 @@ const moviesData = [
         "duration": "2h 11m",
         "genre": "Comedy",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "62",
     },
     {
         "title": "Ford V Ferrari",
         "type": "Movie",
         "duration": "2h 32m",
         "genre": "Biography",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "63",
     },
     {
         "title": "Forrest Gump",
@@ -509,7 +572,8 @@ const moviesData = [
         "duration": "2h 22m",
         "genre": "Drama",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "64",
     },
     {
         "title": "Freedom Writers",
@@ -517,7 +581,8 @@ const moviesData = [
         "duration": "2h 3m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "65",
     },
     {
         "title": "Friends",
@@ -525,7 +590,8 @@ const moviesData = [
         "duration": "236 ep",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "66",
     },
     {
         "title": "Furia De Titanes",
@@ -533,7 +599,8 @@ const moviesData = [
         "duration": "1h 46m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "67",
     },
     {
         "title": "Gambito De Dama",
@@ -541,15 +608,17 @@ const moviesData = [
         "duration": "7 ep",
         "genre": "Drama",
         "platform": "Netflix; Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "68",
     },
     {
         "title": "Gifted",
         "type": "Movie",
         "duration": "1h 41m",
         "genre": "Drama",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "69",
     },
     {
         "title": "Godzilla y Kong: El Nuevo Imperio",
@@ -557,7 +626,8 @@ const moviesData = [
         "duration": "1h 55m",
         "genre": "Action",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "70",
     },
     {
         "title": "Gran Torino",
@@ -565,7 +635,8 @@ const moviesData = [
         "duration": "1h 56m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "71",
     },
     {
         "title": "Gran Turismo",
@@ -573,7 +644,8 @@ const moviesData = [
         "duration": "2h 15m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "72",
     },
     {
         "title": "Grease",
@@ -581,7 +653,8 @@ const moviesData = [
         "duration": "1h 45m",
         "genre": "Musical",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "73",
     },
     {
         "title": "Greyhound",
@@ -589,7 +662,8 @@ const moviesData = [
         "duration": "1h 31m",
         "genre": "Action",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "74",
     },
     {
         "title": "Grown Ups 1 y 2",
@@ -597,7 +671,8 @@ const moviesData = [
         "duration": "3h",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "75",
     },
     {
         "title": "Guardiana De Dragones",
@@ -605,15 +680,17 @@ const moviesData = [
         "duration": "1h 40m",
         "genre": "Animation",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "76",
     },
     {
         "title": "Guardianes De La Galaxia 1, 2 y 3",
         "type": "Saga",
         "duration": "5h",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "77",
     },
     {
         "title": "Hachiko",
@@ -621,7 +698,8 @@ const moviesData = [
         "duration": "1h 33m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "78",
     },
     {
         "title": "Happy Gilmore",
@@ -629,7 +707,8 @@ const moviesData = [
         "duration": "1h 32m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "79",
     },
     {
         "title": "Harry Potter",
@@ -637,15 +716,17 @@ const moviesData = [
         "duration": "20h",
         "genre": "Fantasy",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "80",
     },
     {
         "title": "Hidden Figures",
         "type": "Movie",
         "duration": "2h 7m",
         "genre": "Biography",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "81",
     },
     {
         "title": "Hobbit",
@@ -653,7 +734,8 @@ const moviesData = [
         "duration": "8h",
         "genre": "Fantasy",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "82",
     },
     {
         "title": "I Wanna Dance With Somebody",
@@ -661,31 +743,35 @@ const moviesData = [
         "duration": "2h 24m",
         "genre": "Biography",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "83",
     },
     {
         "title": "Indiana Jones",
         "type": "Movie",
         "duration": "10h",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "84",
     },
     {
         "title": "Indiana Jones y El Dial Del Destino",
         "type": "Movie",
         "duration": "2h 34m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "85",
     },
     {
         "title": "Inside Out 1 y 2",
         "type": "Movie",
         "duration": "3h",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "86",
     },
     {
         "title": "Ira De Titanes",
@@ -693,7 +779,8 @@ const moviesData = [
         "duration": "1h 39m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "87",
     },
     {
         "title": "Isn't It Romantic?",
@@ -701,7 +788,8 @@ const moviesData = [
         "duration": "1h 29m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "88",
     },
     {
         "title": "John Wick 1, 2, 3 y 4",
@@ -709,7 +797,8 @@ const moviesData = [
         "duration": "9h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "89",
     },
     {
         "title": "Joker 2",
@@ -717,7 +806,8 @@ const moviesData = [
         "duration": "TBA",
         "genre": "Action",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "90",
     },
     {
         "title": "Juego De Armas",
@@ -725,7 +815,8 @@ const moviesData = [
         "duration": "1h 54m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "91",
     },
     {
         "title": "Jurassic Park",
@@ -733,7 +824,8 @@ const moviesData = [
         "duration": "7h 30m",
         "genre": "Sci-Fi",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "92",
     },
     {
         "title": "Jurassic World",
@@ -741,7 +833,8 @@ const moviesData = [
         "duration": "7h30",
         "genre": "Sci-Fi",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "93",
     },
     {
         "title": "King Richard",
@@ -749,7 +842,8 @@ const moviesData = [
         "duration": "2h 24m",
         "genre": "Biography",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "94",
     },
     {
         "title": "Kung Fu Panda 4",
@@ -757,23 +851,26 @@ const moviesData = [
         "duration": "1h 30m",
         "genre": "Animation",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "95",
     },
     {
         "title": "La Bella y La Bestia (Emma Watson)",
         "type": "Movie",
         "duration": "2h 9m",
         "genre": "Musical",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "96",
     },
     {
         "title": "La Cita De Carl",
         "type": "Movie",
         "duration": "7m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "97",
     },
     {
         "title": "La Novia Cadaver",
@@ -781,23 +878,26 @@ const moviesData = [
         "duration": "1h 17m",
         "genre": "Animation",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "98",
     },
     {
         "title": "La Sirenita",
         "type": "Movie",
         "duration": "2h 15m",
         "genre": "Musical",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "99",
     },
     {
         "title": "Las Crónicas De Narnia 1-4",
         "type": "Saga",
         "duration": "10h",
         "genre": "Adventure",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "100",
     },
     {
         "title": "Las Ventajas De Ser Un Marginado",
@@ -805,7 +905,8 @@ const moviesData = [
         "duration": "1h 43m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "101",
     },
     {
         "title": "Legally Blonde",
@@ -813,7 +914,8 @@ const moviesData = [
         "duration": "1h 36m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "102",
     },
     {
         "title": "Lift",
@@ -821,31 +923,35 @@ const moviesData = [
         "duration": "1h 39m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "103",
     },
     {
         "title": "Lightyear",
         "type": "Movie",
         "duration": "1h 45m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "104",
     },
     {
         "title": "Lilo & Stitch 1 y 2",
         "type": "Movie",
         "duration": "3h",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "105",
     },
     {
         "title": "Lobezno y Logan",
         "type": "Saga",
         "duration": "5h",
         "genre": "Sci-Fi",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "106",
     },
     {
         "title": "Locke & Key",
@@ -853,15 +959,17 @@ const moviesData = [
         "duration": "28 ep",
         "genre": "Fantasy",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "107",
     },
     {
         "title": "Loki",
         "type": "Series",
         "duration": "12 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "108",
     },
     {
         "title": "Lord Of The Rings",
@@ -869,15 +977,17 @@ const moviesData = [
         "duration": "12h",
         "genre": "Fantasy",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "109",
     },
     {
         "title": "Los Becarios",
         "type": "Movie",
         "duration": "1h 59m",
         "genre": "Comedy",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "110",
     },
     {
         "title": "Los Croods 1 y 2",
@@ -885,15 +995,17 @@ const moviesData = [
         "duration": "3h",
         "genre": "Animation",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "111",
     },
     {
         "title": "Los Increibles 3",
         "type": "Movie",
         "duration": "TBA",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "112",
     },
     {
         "title": "Los Juegos Del Hambre: Balada De Pájaros Cantores y Serpientes",
@@ -901,7 +1013,8 @@ const moviesData = [
         "duration": "2h 37m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "113",
     },
     {
         "title": "LOTR: Rings Of Power",
@@ -909,15 +1022,17 @@ const moviesData = [
         "duration": "8 ep",
         "genre": "Fantasy",
         "platform": "Prime",
-        "status": "Watching"
+        "status": "Watching",
+        "id": "114",
     },
     {
         "title": "Luca",
         "type": "Movie",
         "duration": "1h 35m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "115",
     },
     {
         "title": "Magic Mike",
@@ -925,7 +1040,8 @@ const moviesData = [
         "duration": "1h 50m",
         "genre": "Comedy",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "116",
     },
     {
         "title": "Malditos Bastardos",
@@ -933,7 +1049,8 @@ const moviesData = [
         "duration": "2h 33m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "117",
     },
     {
         "title": "Mamma Mia 1 y 2",
@@ -941,7 +1058,8 @@ const moviesData = [
         "duration": "4h",
         "genre": "Musical",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "118",
     },
     {
         "title": "Mean Girls",
@@ -949,7 +1067,8 @@ const moviesData = [
         "duration": "1h 37m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "119",
     },
     {
         "title": "Megalodon 2",
@@ -957,7 +1076,8 @@ const moviesData = [
         "duration": "1h 56m",
         "genre": "Action",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "120",
     },
     {
         "title": "Memorias De Un Asesino Internacional",
@@ -965,7 +1085,8 @@ const moviesData = [
         "duration": "1h 37m",
         "genre": "Comedy",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "121",
     },
     {
         "title": "Men In Black",
@@ -973,7 +1094,8 @@ const moviesData = [
         "duration": "1h 38m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "122",
     },
     {
         "title": "Mientras Dure La Guerra",
@@ -981,7 +1103,8 @@ const moviesData = [
         "duration": "1h 47m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "123",
     },
     {
         "title": "Million Dollar Baby",
@@ -989,7 +1112,8 @@ const moviesData = [
         "duration": "2h 12m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "124",
     },
     {
         "title": "Minions",
@@ -997,7 +1121,8 @@ const moviesData = [
         "duration": "1h 31m",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "125",
     },
     {
         "title": "Minions: The Rise Of Gru",
@@ -1005,7 +1130,8 @@ const moviesData = [
         "duration": "1h 27m",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "126",
     },
     {
         "title": "Misery",
@@ -1013,15 +1139,17 @@ const moviesData = [
         "duration": "1h 47m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "127",
     },
     {
         "title": "Modern Family",
         "type": "Series",
         "duration": "250 ep",
         "genre": "Comedy",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "128",
     },
     {
         "title": "Nacho Libre",
@@ -1029,7 +1157,8 @@ const moviesData = [
         "duration": "1h 32m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "129",
     },
     {
         "title": "Napoleón",
@@ -1037,7 +1166,8 @@ const moviesData = [
         "duration": "2h 30m",
         "genre": "Biography",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "130",
     },
     {
         "title": "Ninja Turtles: Caos Mutante",
@@ -1045,23 +1175,26 @@ const moviesData = [
         "duration": "1h 39m",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "131",
     },
     {
         "title": "Noche En El Museo Trilogía",
         "type": "Saga",
         "duration": "6h",
         "genre": "Comedy",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "132",
     },
     {
         "title": "Obi-Wan",
         "type": "Series",
         "duration": "6 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "133",
     },
     {
         "title": "Oppenheimer",
@@ -1069,7 +1202,8 @@ const moviesData = [
         "duration": "3h",
         "genre": "Biography",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "134",
     },
     {
         "title": "Ordinary World",
@@ -1077,7 +1211,8 @@ const moviesData = [
         "duration": "1h 27m",
         "genre": "Comedy; Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "135",
     },
     {
         "title": "Origen",
@@ -1085,7 +1220,8 @@ const moviesData = [
         "duration": "2h 28m",
         "genre": "Sci-Fi",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "136",
     },
     {
         "title": "Pacific Rim",
@@ -1093,31 +1229,35 @@ const moviesData = [
         "duration": "2h 11m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "137",
     },
     {
         "title": "Percy Jackson y Los Dioses Del Olimpo",
         "type": "Series",
         "duration": "8 ep",
         "genre": "Adventure",
-        "platform": "Disney+",
-        "status": "Watching"
+        "platform": "Disneyplus",
+        "status": "Watching",
+        "id": "138",
     },
     {
         "title": "Pesadilla Antes De Navidad",
         "type": "Movie",
         "duration": "1h 16m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "139",
     },
     {
         "title": "Piratas Del Caribe",
         "type": "Saga",
         "duration": "10h",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "140",
     },
     {
         "title": "Pobres Criaturas",
@@ -1125,7 +1265,8 @@ const moviesData = [
         "duration": "2h 21m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "141",
     },
     {
         "title": "Polar Express",
@@ -1133,15 +1274,17 @@ const moviesData = [
         "duration": "1h 40m",
         "genre": "Animation",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "142",
     },
     {
         "title": "Pretty Woman",
         "type": "Movie",
         "duration": "1h 59m",
         "genre": "Comedy",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "143",
     },
     {
         "title": "Pulp Fiction",
@@ -1149,15 +1292,17 @@ const moviesData = [
         "duration": "2h 34m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "144",
     },
     {
         "title": "Quantumania",
         "type": "Movie",
         "duration": "2h 5m",
         "genre": "Sci-Fi",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "145",
     },
     {
         "title": "Rebel Moon",
@@ -1165,15 +1310,17 @@ const moviesData = [
         "duration": "2h 15m",
         "genre": "Action",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "146",
     },
     {
         "title": "Rogue One",
         "type": "Movie",
         "duration": "2h 13m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "147",
     },
     {
         "title": "Rush",
@@ -1181,7 +1328,8 @@ const moviesData = [
         "duration": "2h 3m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "148",
     },
     {
         "title": "Rush Hour",
@@ -1189,7 +1337,8 @@ const moviesData = [
         "duration": "1h 38m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "149",
     },
     {
         "title": "Salem's Lot",
@@ -1197,7 +1346,8 @@ const moviesData = [
         "duration": "1h 52m",
         "genre": "Thriller",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "150",
     },
     {
         "title": "School Of Rock",
@@ -1205,15 +1355,17 @@ const moviesData = [
         "duration": "1h 48m",
         "genre": "Comedy",
         "platform": "None",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "151",
     },
     {
         "title": "Secret Invasion",
         "type": "Series",
         "duration": "6 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watching"
+        "platform": "Disneyplus",
+        "status": "Watching",
+        "id": "152",
     },
     {
         "title": "Serpientes En El Avión",
@@ -1221,15 +1373,17 @@ const moviesData = [
         "duration": "1h 45m",
         "genre": "Action",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "153",
     },
     {
         "title": "Solo",
         "type": "Movie",
         "duration": "2h 15m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "154",
     },
     {
         "title": "Soy Leyenda",
@@ -1237,7 +1391,8 @@ const moviesData = [
         "duration": "1h 41m",
         "genre": "Sci-Fi",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "155",
     },
     {
         "title": "Spiderman Cruzando El Multiverso",
@@ -1245,7 +1400,8 @@ const moviesData = [
         "duration": "6h",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Watching"
+        "status": "Watching",
+        "id": "156",
     },
     {
         "title": "Spirited",
@@ -1253,7 +1409,8 @@ const moviesData = [
         "duration": "2h 7m",
         "genre": "Comedy",
         "platform": "None",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "157",
     },
     {
         "title": "Star Wars",
@@ -1261,7 +1418,8 @@ const moviesData = [
         "duration": "25h",
         "genre": "Sci-Fi",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "158",
     },
     {
         "title": "Stranger Things",
@@ -1269,7 +1427,8 @@ const moviesData = [
         "duration": "34 ep",
         "genre": "Sci-Fi",
         "platform": "Netflix",
-        "status": "Watching"
+        "status": "Watching",
+        "id": "159",
     },
     {
         "title": "Suegros De Armas Tomar",
@@ -1277,7 +1436,8 @@ const moviesData = [
         "duration": "1h 35m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "160",
     },
     {
         "title": "Super Mario Bros Movie",
@@ -1285,7 +1445,8 @@ const moviesData = [
         "duration": "1h 32m",
         "genre": "Animation",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "161",
     },
     {
         "title": "Superbad",
@@ -1293,7 +1454,8 @@ const moviesData = [
         "duration": "1h 59m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "162",
     },
     {
         "title": "Sweeny Todd",
@@ -1301,31 +1463,35 @@ const moviesData = [
         "duration": "1h 56m",
         "genre": "Musical",
         "platform": "Max; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "163",
     },
     {
         "title": "Tales Of The Empire",
         "type": "Series",
         "duration": "6 ep",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "164",
     },
     {
         "title": "Tales Of The Jedi",
         "type": "Series",
         "duration": "6 ep",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "165",
     },
     {
         "title": "Taylor Swift: The Eras Tour",
         "type": "Movie",
         "duration": "2h 48m",
         "genre": "Biography",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "166",
     },
     {
         "title": "Terminator",
@@ -1333,23 +1499,26 @@ const moviesData = [
         "duration": "1h 47m",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "167",
     },
     {
         "title": "The Acolyte",
         "type": "Series",
         "duration": "8 ep",
         "genre": "Sci-Fi",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "168",
     },
     {
         "title": "The Bad Batch (Star Wars)",
         "type": "Series",
         "duration": "16 ep",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "169",
     },
     {
         "title": "The Batman",
@@ -1357,15 +1526,17 @@ const moviesData = [
         "duration": "2h 56m",
         "genre": "Action",
         "platform": "Netflix; Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "170",
     },
     {
         "title": "The Book Of Boba Fett",
         "type": "Series",
         "duration": "7 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "171",
     },
     {
         "title": "The Boy The Mole The Fox And The Horse",
@@ -1373,7 +1544,8 @@ const moviesData = [
         "duration": "34m",
         "genre": "Animation",
         "platform": "None",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "172",
     },
     {
         "title": "The Boys",
@@ -1381,15 +1553,17 @@ const moviesData = [
         "duration": "32 ep",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "173",
     },
     {
         "title": "The Clone Wars",
         "type": "Series",
         "duration": "133 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "174",
     },
     {
         "title": "The Fablemans",
@@ -1397,7 +1571,8 @@ const moviesData = [
         "duration": "2h 31m",
         "genre": "Biography",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "175",
     },
     {
         "title": "The Great Gatsby (Leo Dicaprio)",
@@ -1405,7 +1580,8 @@ const moviesData = [
         "duration": "2h 23m",
         "genre": "Drama",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "176",
     },
     {
         "title": "The Hustle",
@@ -1413,7 +1589,8 @@ const moviesData = [
         "duration": "1h 34m",
         "genre": "Comedy",
         "platform": "Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "177",
     },
     {
         "title": "The Interview",
@@ -1421,31 +1598,35 @@ const moviesData = [
         "duration": "1h 52m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "178",
     },
     {
         "title": "The Mandalorian",
         "type": "Series",
         "duration": "24 ep",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "179",
     },
     {
         "title": "The Mandalorian & Grogu",
         "type": "Movie",
         "duration": "TBA",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "180",
     },
     {
         "title": "The Menu",
         "type": "Movie",
         "duration": "1h 46m",
         "genre": "Thriller",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "181",
     },
     {
         "title": "The Willoughbys",
@@ -1453,7 +1634,8 @@ const moviesData = [
         "duration": "1h 30m",
         "genre": "Animation",
         "platform": "Netflix",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "182",
     },
     {
         "title": "This Is The End",
@@ -1461,23 +1643,26 @@ const moviesData = [
         "duration": "1h 47m",
         "genre": "Comedy",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "183",
     },
     {
         "title": "Thor: Love And Thunder",
         "type": "Movie",
         "duration": "1h 59m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "184",
     },
     {
         "title": "Tiana y El Sapo",
         "type": "Movie",
         "duration": "1h 37m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "185",
     },
     {
         "title": "Tick Tick Boom",
@@ -1485,7 +1670,8 @@ const moviesData = [
         "duration": "1h 55m",
         "genre": "Musical",
         "platform": "Netflix",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "186",
     },
     {
         "title": "Top Gun 1 y 2",
@@ -1493,7 +1679,8 @@ const moviesData = [
         "duration": "1h 49m",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "187",
     },
     {
         "title": "Transformers Saga",
@@ -1501,7 +1688,8 @@ const moviesData = [
         "duration": "15h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watching"
+        "status": "Watching",
+        "id": "188",
     },
     {
         "title": "Trilogía Batman",
@@ -1509,7 +1697,8 @@ const moviesData = [
         "duration": "5h",
         "genre": "Action",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "189",
     },
     {
         "title": "Trilogía Divergente",
@@ -1517,7 +1706,8 @@ const moviesData = [
         "duration": "6h",
         "genre": "Action",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "190",
     },
     {
         "title": "Trilogía El Corredor Del Laberinto",
@@ -1525,15 +1715,17 @@ const moviesData = [
         "duration": "6h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "191",
     },
     {
         "title": "Trilogía El Planeta De Los Simios",
         "type": "Saga",
         "duration": "6h",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "192",
     },
     {
         "title": "Trilogía Los Juegos Del Hambre",
@@ -1541,55 +1733,62 @@ const moviesData = [
         "duration": "6h",
         "genre": "Action",
         "platform": "Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "193",
     },
     {
         "title": "Tron Legacy",
         "type": "Movie",
         "duration": "2h 5m",
         "genre": "Action",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "194",
     },
     {
         "title": "Una Pareja De 3",
         "type": "Movie",
         "duration": "1h 55m",
         "genre": "Comedy",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "195",
     },
     {
         "title": "Up",
         "type": "Movie",
         "duration": "1h 36m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "196",
     },
     {
         "title": "Vaiana",
         "type": "Movie",
         "duration": "1h 47m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "197",
     },
     {
         "title": "Wall E",
         "type": "Movie",
         "duration": "1h 38m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "198",
     },
     {
         "title": "Westside Story",
         "type": "Movie",
         "duration": "2h 36m",
         "genre": "Musical",
-        "platform": "Disney+",
-        "status": "Not watched"
+        "platform": "Disneyplus",
+        "status": "Not watched",
+        "id": "199",
     },
     {
         "title": "Why Him",
@@ -1597,15 +1796,17 @@ const moviesData = [
         "duration": "1h 51m",
         "genre": "Comedy",
         "platform": "Netflix; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "200",
     },
     {
         "title": "Wish",
         "type": "Movie",
         "duration": "1h 30m",
         "genre": "Animation",
-        "platform": "Disney+",
-        "status": "Watched"
+        "platform": "Disneyplus",
+        "status": "Watched",
+        "id": "201",
     },
     {
         "title": "Wonder",
@@ -1613,7 +1814,8 @@ const moviesData = [
         "duration": "1h 53m",
         "genre": "Drama",
         "platform": "Netflix; Prime",
-        "status": "Not watched"
+        "status": "Not watched",
+        "id": "202",
     },
     {
         "title": "Wonka",
@@ -1621,7 +1823,8 @@ const moviesData = [
         "duration": "1h 56m",
         "genre": "Musical",
         "platform": "Max; Prime",
-        "status": "Watched"
+        "status": "Watched",
+        "id": "203",
     }
 ];
 

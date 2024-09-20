@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
-import { useFonts } from 'expo-font';
 import Feather from 'react-native-vector-icons/Feather';
 
 import colors from '../assets/colors/colors.js';

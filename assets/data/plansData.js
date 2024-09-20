@@ -5,7 +5,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "23€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "1",
     },
     {
         "plan": "Parque Europa",
@@ -13,7 +14,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "2",
     },
     {
         "plan": "Aquopolis",
@@ -21,7 +23,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "19.99€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "3",
     },
     {
         "plan": "Bubbletea Madrid",
@@ -29,7 +32,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "4",
     },
     {
         "plan": "Palacio De Hielo",
@@ -37,7 +41,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "12€ mañana, 14€ tarde",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "5",
     },
     {
         "plan": "Barcas Retiro",
@@ -45,7 +50,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "6€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "6",
     },
     {
         "plan": "Padel Talavera",
@@ -53,7 +59,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "2.20€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "7",
     },
     {
         "plan": "Tenis Talavera",
@@ -61,7 +68,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "2.20€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "8",
     },
     {
         "plan": "Patinaje Xmadrid",
@@ -69,7 +77,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "9",
     },
     {
         "plan": "Rápidos Rio Tajo",
@@ -77,7 +86,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "35€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "10",
     },
     {
         "plan": "Atoope Park",
@@ -85,7 +95,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "12€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "11",
     },
     {
         "plan": "Karting",
@@ -93,7 +104,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "20€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "12",
     },
     {
         "plan": "Lego Parquesur",
@@ -101,7 +113,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "13",
     },
     {
         "plan": "Warner Beach",
@@ -109,7 +122,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "19.90€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "14",
     },
     {
         "plan": "Animal Crossing",
@@ -117,7 +131,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "15",
     },
     {
         "plan": "Kayak Duratón",
@@ -125,7 +140,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "16.20€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "16",
     },
     {
         "plan": "Nacimiento Del Ebro",
@@ -133,7 +149,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "17",
     },
     {
         "plan": "La Pedriza",
@@ -141,7 +158,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "18",
     },
     {
         "plan": "La Ruta De La Jara",
@@ -149,7 +167,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "19",
     },
     {
         "plan": "McQueen",
@@ -157,7 +176,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "6€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "20",
     },
     {
         "plan": "Ppt Año En California",
@@ -165,7 +185,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "21",
     },
     {
         "plan": "Picnic Río Parque Del Oeste",
@@ -173,7 +194,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "22",
     },
     {
         "plan": "Leones Marinos Faunia",
@@ -181,7 +203,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "50.90€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "23",
     },
     {
         "plan": "Cuenca - Tirolina Más Larga De Europa",
@@ -189,7 +212,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "25€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "24",
     },
     {
         "plan": "Huesca - Tirolina Más Rápida Del Mundo",
@@ -197,7 +221,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "44.90€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "25",
     },
     {
         "plan": "Rastro",
@@ -205,7 +230,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "26",
     },
     {
         "plan": "Embalse De San Juan Kayaks",
@@ -213,7 +239,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "9€ 1h, 13€ 2h",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "27",
     },
     {
         "plan": "Kayak Cazalegas",
@@ -221,7 +248,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "22€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "28",
     },
     {
         "plan": "Pepito De Crema La Mallorquina",
@@ -229,7 +257,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "29",
     },
     {
         "plan": "Tour Santiago Bernabeu",
@@ -237,7 +266,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "35€, 28€ con carné",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "30",
     },
     {
         "plan": "Campo De Criptana/Consuegra (Molinos)",
@@ -245,7 +275,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "31",
     },
     {
         "plan": "Apuntes Detrás De Las Fotos (Beadactilo)",
@@ -253,7 +284,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "32",
     },
     {
         "plan": "Museo Del Jamón",
@@ -261,7 +293,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "33",
     },
     {
         "plan": "Alehop",
@@ -269,7 +302,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "34",
     },
     {
         "plan": "Círculo De Bellas Artes",
@@ -277,7 +311,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "10€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "35",
     },
     {
         "plan": "Hotel Riu Terraza",
@@ -285,7 +320,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "10€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "36",
     },
     {
         "plan": "Amorino Corte Inglés",
@@ -293,7 +329,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "37",
     },
     {
         "plan": "Churros En Chocolatería San Ginés",
@@ -301,7 +338,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "38",
     },
     {
         "plan": "Tiendas De Souvenirs Sol",
@@ -309,7 +347,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "39",
     },
     {
         "plan": "Terraza Salvador Bachiller",
@@ -317,7 +356,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "40",
     },
     {
         "plan": "Sushido Talavera",
@@ -325,7 +365,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "15€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "41",
     },
     {
         "plan": "Museo Del Prado",
@@ -333,7 +374,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "42",
     },
     {
         "plan": "Museo Del Aire Y Del Espacio",
@@ -341,7 +383,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "43",
     },
     {
         "plan": "Ramen Calle Leganitos",
@@ -349,7 +392,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "44",
     },
     {
         "plan": "Koi Talavera",
@@ -357,7 +401,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "8€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "45",
     },
     {
         "plan": "Dorayakis Madrid",
@@ -365,7 +410,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "46",
     },
     {
         "plan": "Warner",
@@ -373,7 +419,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "29.90€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "47",
     },
     {
         "plan": "El Prado Talavera",
@@ -381,7 +428,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "48",
     },
     {
         "plan": "Ikea",
@@ -389,7 +437,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "49",
     },
     {
         "plan": "La Ciudad De Las Artes Y Las Ciencias",
@@ -397,7 +446,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "42.70€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "50",
     },
     {
         "plan": "Toledo",
@@ -405,7 +455,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "51",
     },
     {
         "plan": "Ávila",
@@ -413,7 +464,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "52",
     },
     {
         "plan": "El Escorial",
@@ -421,7 +473,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "7€, 0€ a veces",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "53",
     },
     {
         "plan": "Segovia",
@@ -429,7 +482,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "54",
     },
     {
         "plan": "Autocine Madrid",
@@ -437,7 +491,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7€-9€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "55",
     },
     {
         "plan": "Mutua Madrid Open",
@@ -445,7 +500,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "70€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "56",
     },
     {
         "plan": "Tienda Cerámica Talavera",
@@ -453,7 +509,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "57",
     },
     {
         "plan": "Croquetas Sol",
@@ -461,7 +518,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "58",
     },
     {
         "plan": "Bar Croquetas Tenis",
@@ -469,7 +527,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "59",
     },
     {
         "plan": "Museo Naval Madrid",
@@ -477,7 +536,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "60",
     },
     {
         "plan": "Palacio De Cristal",
@@ -485,7 +545,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "61",
     },
     {
         "plan": "Caramelos Paco",
@@ -493,7 +554,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "62",
     },
     {
         "plan": "Estación Gran Vía",
@@ -501,7 +563,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "63",
     },
     {
         "plan": "Flechas Primark",
@@ -509,7 +572,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "64",
     },
     {
         "plan": "Casa Del Libro",
@@ -517,7 +581,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "65",
     },
     {
         "plan": "Museo De Cerámica Ruiz De Luna",
@@ -525,7 +590,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "66",
     },
     {
         "plan": "Helado Gallego Calle Arenal",
@@ -533,7 +599,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "67",
     },
     {
         "plan": "Terraza Cr7",
@@ -541,7 +608,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "68",
     },
     {
         "plan": "Outlet Real Madrid",
@@ -549,7 +617,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "69",
     },
     {
         "plan": "Visita Palacio Real",
@@ -557,7 +626,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "6€, 0€ a veces",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "70",
     },
     {
         "plan": "Lenguas De Gato La Mayorquina",
@@ -565,7 +635,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "71",
     },
     {
         "plan": "La Playa De Madrid",
@@ -573,7 +644,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "72",
     },
     {
         "plan": "Mercado San Miguel",
@@ -581,7 +653,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "73",
     },
     {
         "plan": "Fitur",
@@ -589,7 +662,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "13.20€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "74",
     },
     {
         "plan": "Turrón Donut Vicens Vives",
@@ -597,7 +671,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "75",
     },
     {
         "plan": "Sweet Pirate Chuches",
@@ -605,7 +680,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "76",
     },
     {
         "plan": "Casa Mira",
@@ -613,7 +689,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "77",
     },
     {
         "plan": "Duck Store Madrid",
@@ -621,7 +698,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "78",
     },
     {
         "plan": "Plaza Mayor",
@@ -629,7 +707,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "79",
     },
     {
         "plan": "Plaza Mayor Mercado Navideño",
@@ -637,7 +716,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "80",
     },
     {
         "plan": "Restaurante Botín (Más Antiguo Del Mundo)",
@@ -645,7 +725,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "81",
     },
     {
         "plan": "Plaza Mayor Bocadillo De Calamares",
@@ -653,7 +734,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "82",
     },
     {
         "plan": "Xanadu",
@@ -661,7 +743,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "83",
     },
     {
         "plan": "Ikea (Comida)",
@@ -669,7 +752,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "84",
     },
     {
         "plan": "Medievales Ávila",
@@ -677,7 +761,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "85",
     },
     {
         "plan": "Museo Chamberí Madrid",
@@ -685,7 +770,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "86",
     },
     {
         "plan": "Llao Llao",
@@ -693,7 +779,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "87",
     },
     {
         "plan": "Pontejos",
@@ -701,7 +788,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "88",
     },
     {
         "plan": "Casa Museo Del Ratoncito Pérez",
@@ -709,7 +797,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "89",
     },
     {
         "plan": "Plaza Rio 2",
@@ -717,7 +806,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "90",
     },
     {
         "plan": "Fotomaton Faunia",
@@ -725,7 +815,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "3€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "91",
     },
     {
         "plan": "La Mayorquina Menú Degustación",
@@ -733,7 +824,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "92",
     },
     {
         "plan": "Doña Manolita",
@@ -741,7 +833,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "93",
     },
     {
         "plan": "La Rosaleda (Retiro)",
@@ -749,7 +842,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "94",
     },
     {
         "plan": "Las Rozas Village",
@@ -757,7 +851,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "95",
     },
     {
         "plan": "Ver Final Nadal Federer 2008",
@@ -765,7 +860,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "96",
     },
     {
         "plan": "Camiseta Aniversario (Collage)",
@@ -773,7 +869,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "97",
     },
     {
         "plan": "Pantalón Ganchillo Thick Fil A",
@@ -781,7 +878,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "98",
     },
     {
         "plan": "Aniversario Pista De Patinaje (Hamburguesas Caras)",
@@ -789,7 +887,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "20€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "99",
     },
     {
         "plan": "Jumplandia",
@@ -797,7 +896,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€ semana, 12€ finde",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "100",
     },
     {
         "plan": "Museo De Historia Natural De Madrid",
@@ -805,7 +905,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "101",
     },
     {
         "plan": "Templo De Debod",
@@ -813,7 +914,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "102",
     },
     {
         "plan": "Salto De Poveda, Parque Natural Del Alto Tajo",
@@ -821,7 +923,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "103",
     },
     {
         "plan": "Tierra Burrito",
@@ -829,7 +932,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "8€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "104",
     },
     {
         "plan": "Las Becerras",
@@ -837,7 +941,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "105",
     },
     {
         "plan": "Bolera Parquesur",
@@ -845,7 +950,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "106",
     },
     {
         "plan": "Tiki Tako Clavel Gran Vía",
@@ -853,7 +959,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "107",
     },
     {
         "plan": "Mobility Museum",
@@ -861,7 +968,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "108",
     },
     {
         "plan": "Poke House",
@@ -869,7 +977,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "9€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "109",
     },
     {
         "plan": "Disneyland London 2024 / 2029",
@@ -877,7 +986,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "80€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "110",
     },
     {
         "plan": "Mini Golf Las Rozas",
@@ -885,7 +995,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "10€ con reserva",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "111",
     },
     {
         "plan": "Sushi Shan",
@@ -893,7 +1004,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "14€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "112",
     },
     {
         "plan": "Replay Outlet Boardgame Cafe",
@@ -901,7 +1013,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "113",
     },
     {
         "plan": "Ceramica En Talavera",
@@ -909,7 +1022,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "114",
     },
     {
         "plan": "Plane Sightseeing En Barajas",
@@ -917,7 +1031,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "115",
     },
     {
         "plan": "Mistura",
@@ -925,7 +1040,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "116",
     },
     {
         "plan": "Caja De Macarons",
@@ -933,7 +1049,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "117",
     },
     {
         "plan": "Moscovitas",
@@ -941,7 +1058,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "19€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "118",
     },
     {
         "plan": "Filipinos",
@@ -949,7 +1067,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "1.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "119",
     },
     {
         "plan": "Véneta",
@@ -957,7 +1076,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "120",
     },
     {
         "plan": "Friendship Bracelets",
@@ -965,7 +1085,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "121",
     },
     {
         "plan": "Guirnalda Ganchillo",
@@ -973,7 +1094,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "122",
     },
     {
         "plan": "Pista De Hielo Colon / Matadero",
@@ -981,7 +1103,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "6€/30min",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "123",
     },
     {
         "plan": "Mochi Corte Inglés Club Gourmet",
@@ -989,7 +1112,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "124",
     },
     {
         "plan": "Bubble Tea Pio",
@@ -997,7 +1121,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "125",
     },
     {
         "plan": "Scalextric Tres Aguas",
@@ -1005,7 +1130,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "1.5€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "126",
     },
     {
         "plan": "Macayaki",
@@ -1013,7 +1139,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "127",
     },
     {
         "plan": "Parque De Atenas (Flechas)",
@@ -1021,7 +1148,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "128",
     },
     {
         "plan": "Aguarales De Valpalmas",
@@ -1029,7 +1157,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "129",
     },
     {
         "plan": "Belen Del Ayuntamiento Madrid",
@@ -1037,7 +1166,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "130",
     },
     {
         "plan": "Roli Rolls",
@@ -1045,7 +1175,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "1.75€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "131",
     },
     {
         "plan": "Filipo Pizza",
@@ -1053,7 +1184,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "15€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "132",
     },
     {
         "plan": "Lanzarote",
@@ -1061,7 +1193,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "133",
     },
     {
         "plan": "Ruta De Las Maravillas",
@@ -1069,7 +1202,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "134",
     },
     {
         "plan": "Ojo Del Buey",
@@ -1077,7 +1211,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "135",
     },
     {
         "plan": "Caminito Del Rey",
@@ -1085,7 +1220,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "10€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "136",
     },
     {
         "plan": "Montaña Artificial Del Retiro",
@@ -1093,7 +1229,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "137",
     },
     {
         "plan": "Cueva De Las Palomas",
@@ -1101,7 +1238,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "138",
     },
     {
         "plan": "Fuente De Los Baños",
@@ -1109,7 +1247,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "139",
     },
     {
         "plan": "El Parrizal",
@@ -1117,7 +1256,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "140",
     },
     {
         "plan": "Baños Romanos De La Hedionda",
@@ -1125,7 +1265,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "141",
     },
     {
         "plan": "Mananatial De La Salud Del Arroyo, Parque Del Oeste",
@@ -1133,7 +1274,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "142",
     },
     {
         "plan": "Cañon Del Rio Lozoya",
@@ -1141,7 +1283,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "143",
     },
     {
         "plan": "Shangrilla Dimsun Calle Leganitos",
@@ -1149,7 +1292,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "144",
     },
     {
         "plan": "Exposicion Telefonica Madrid",
@@ -1157,7 +1301,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "145",
     },
     {
         "plan": "Takomama",
@@ -1165,7 +1310,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "146",
     },
     {
         "plan": "Chun Li",
@@ -1173,7 +1319,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "147",
     },
     {
         "plan": "Pez Tortilla",
@@ -1181,7 +1328,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "148",
     },
     {
         "plan": "Fuentes De La Granja De San Ildefonso",
@@ -1189,7 +1337,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "4€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "149",
     },
     {
         "plan": "Piscina Hotel Cool Rooms Palacio De Atocha",
@@ -1197,7 +1346,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "150",
     },
     {
         "plan": "Chinchón",
@@ -1205,7 +1355,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "151",
     },
     {
         "plan": "Sepúlveda",
@@ -1213,7 +1364,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "152",
     },
     {
         "plan": "Patones De Arriba",
@@ -1221,7 +1373,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "153",
     },
     {
         "plan": "Sigüenza",
@@ -1229,7 +1382,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "154",
     },
     {
         "plan": "Buitrago Del Lozoya",
@@ -1237,7 +1391,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "155",
     },
     {
         "plan": "Ayllón",
@@ -1245,7 +1400,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "156",
     },
     {
         "plan": "Museo Arqueológico Nacional + Replica Altamira, Calle Serrano",
@@ -1253,7 +1409,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "1.5€, 0€ a veces",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "157",
     },
     {
         "plan": "Ajedrez Con Macaggons",
@@ -1261,7 +1418,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "158",
     },
     {
         "plan": "Tabetai España (Crepes)",
@@ -1269,7 +1427,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "159",
     },
     {
         "plan": "Ruta De Las Cárcavas",
@@ -1277,7 +1436,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "160",
     },
     {
         "plan": "Laberinto De Peñíscola",
@@ -1285,7 +1445,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "161",
     },
     {
         "plan": "Museo Del Turrón (Madrid)",
@@ -1293,7 +1454,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "1.5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "162",
     },
     {
         "plan": "Teleférico",
@@ -1301,7 +1463,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "163",
     },
     {
         "plan": "Torre Moncloa",
@@ -1309,7 +1472,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "164",
     },
     {
         "plan": "Hacer Udon",
@@ -1317,7 +1481,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "165",
     },
     {
         "plan": "Hacer Gyozas",
@@ -1325,7 +1490,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "166",
     },
     {
         "plan": "Kuraya",
@@ -1333,7 +1499,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "167",
     },
     {
         "plan": "Trineo Navacerrada",
@@ -1341,7 +1508,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "168",
     },
     {
         "plan": "Nerfs",
@@ -1349,7 +1517,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "169",
     },
     {
         "plan": "Show Luces Parque Europa",
@@ -1357,7 +1526,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "170",
     },
     {
         "plan": "Parque El Capricho",
@@ -1365,7 +1535,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "171",
     },
     {
         "plan": "El Hachazo (3 Opciones)",
@@ -1373,7 +1544,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "14€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "172",
     },
     {
         "plan": "Altitude Park (15% Carné Joven)",
@@ -1381,7 +1553,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "13€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "173",
     },
     {
         "plan": "La Tortilla 2.0",
@@ -1389,7 +1562,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2.5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "174",
     },
     {
         "plan": "Parque De La Quinta De Los Molinos",
@@ -1397,7 +1571,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "175",
     },
     {
         "plan": "Maillard Smash Burguer",
@@ -1405,7 +1580,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "6€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "176",
     },
     {
         "plan": "Museo Geominero",
@@ -1413,7 +1589,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "177",
     },
     {
         "plan": "Ramen Shifu",
@@ -1421,7 +1598,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "178",
     },
     {
         "plan": "Kaiten Sushi",
@@ -1429,7 +1607,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "14.95€-18€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "179",
     },
     {
         "plan": "Espacio Iberia Callao",
@@ -1437,7 +1616,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "180",
     },
     {
         "plan": "Sufu Cake",
@@ -1445,7 +1625,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5.90€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "181",
     },
     {
         "plan": "Gioelia (Granizado Italiano)",
@@ -1453,7 +1634,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "182",
     },
     {
         "plan": "Normal Principe Pio",
@@ -1461,7 +1643,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "183",
     },
     {
         "plan": "Libreria Principe Pio",
@@ -1469,7 +1652,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "184",
     },
     {
         "plan": "2x26 Camisetas Principe Pio",
@@ -1477,7 +1661,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "13€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "185",
     },
     {
         "plan": "Jardín Botánico De Madrid",
@@ -1485,7 +1670,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "2€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "186",
     },
     {
         "plan": "Palazzo",
@@ -1493,7 +1679,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "187",
     },
     {
         "plan": "Açai Amazonia",
@@ -1501,7 +1688,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "188",
     },
     {
         "plan": "Revuelto (Sandwiches Coreanos)",
@@ -1509,7 +1697,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "7.5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "189",
     },
     {
         "plan": "Museo De La Aviacion De Getafe",
@@ -1517,7 +1706,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "190",
     },
     {
         "plan": "Bar Una Grande Libre (Chino Franquista)",
@@ -1525,7 +1715,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "191",
     },
     {
         "plan": "La Federala",
@@ -1533,7 +1724,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "12€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "192",
     },
     {
         "plan": "La Alhambra",
@@ -1541,7 +1733,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "30€ con tour",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "193",
     },
     {
         "plan": "En Busca Del Tiempo (Vasco)",
@@ -1549,7 +1742,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "194",
     },
     {
         "plan": "Marihuana Bronca Total (Camiseta Green Day)",
@@ -1557,7 +1751,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "20€",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "195",
     },
     {
         "plan": "Piscina Puerta De Hierro",
@@ -1565,7 +1760,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "196",
     },
     {
         "plan": "El Esquinazo (Tostas Gigantes)",
@@ -1573,7 +1769,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "197",
     },
     {
         "plan": "Outlet C/ Virgen Del Sagrario, 3",
@@ -1581,7 +1778,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "198",
     },
     {
         "plan": "El Descenso Del Sella",
@@ -1589,7 +1787,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "16€ doble, 25€ indiv.",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "199",
     },
     {
         "plan": "Restaurante A Ri Rang (Buffet Libre Korean Bbq)",
@@ -1597,7 +1796,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "21.50€-24.50€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "200",
     },
     {
         "plan": "El Faro Del Caballo",
@@ -1605,7 +1805,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "201",
     },
     {
         "plan": "Laberinto Del Parque De Tentegorra",
@@ -1613,7 +1814,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "202",
     },
     {
         "plan": "Tren Histórico De Arganda",
@@ -1621,7 +1823,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "7€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "203",
     },
     {
         "plan": "La Fresería",
@@ -1629,7 +1832,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "5€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "204",
     },
     {
         "plan": "La Ciudad De Los Niños (Tres Cantos)",
@@ -1637,7 +1841,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "205",
     },
     {
         "plan": "Jardín Banca March (C/ De Castelló, 75)",
@@ -1645,7 +1850,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "206",
     },
     {
         "plan": "Pasaporte Metro (Chamberí)",
@@ -1653,7 +1859,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "207",
     },
     {
         "plan": "Bolera Sambil",
@@ -1661,7 +1868,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4.5€-6€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "208",
     },
     {
         "plan": "Nunuka Madrid (Comida Georgiana)",
@@ -1669,7 +1877,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "25€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "209",
     },
     {
         "plan": "Salt In Cake (Cinnamon Rolls)",
@@ -1677,7 +1886,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "3.9€",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "210",
     },
     {
         "plan": "Virtuastation (Parque De Vr)",
@@ -1685,7 +1895,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "5€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "211",
     },
     {
         "plan": "Tour Gratis Kaicao Madrid (Chocolate)",
@@ -1693,7 +1904,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "Yes",
-        "done": "No"
+        "done": "No",
+        "id": "212",
     },
     {
         "plan": "Callejón Madriagón (X Madrid)",
@@ -1701,7 +1913,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "213",
     },
     {
         "plan": "Camino De Hierro (Parque Natural De Las Arribes Del Duero)",
@@ -1709,7 +1922,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "214",
     },
     {
         "plan": "Parque De Los Sifones",
@@ -1717,7 +1931,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "215",
     },
     {
         "plan": "Museo Etnográfico",
@@ -1725,7 +1940,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "216",
     },
     {
         "plan": "Piedralaves (Desde Talavera)",
@@ -1733,7 +1949,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "217",
     },
     {
         "plan": "Yucatan X Godzilla",
@@ -1741,7 +1958,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "10€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "218",
     },
     {
         "plan": "Embalse De Bolarque",
@@ -1749,7 +1967,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "219",
     },
     {
         "plan": "Heladeria Rocambolesc",
@@ -1757,7 +1976,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "4€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "220",
     },
     {
         "plan": "Parque Natural De Las Bardenas Reales",
@@ -1765,7 +1985,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "221",
     },
     {
         "plan": "Frigopie",
@@ -1773,7 +1994,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "2€",
         "eating": "Yes",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "222",
     },
     {
         "plan": "Aranjuez",
@@ -1781,7 +2003,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "223",
     },
     {
         "plan": "Bosque Encantado",
@@ -1789,7 +2012,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "12€",
         "eating": "No",
-        "done": "No"
+        "done": "No",
+        "id": "224",
     },
     {
         "plan": "Caixaforum: Patagonia",
@@ -1797,7 +2021,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "225",
     },
     {
         "plan": "Caixaforum: Pixar",
@@ -1805,7 +2030,8 @@ const plansData = [
         "indoor_outdoor": "Indoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "226",
     },
     {
         "plan": "Monolitos Talavera",
@@ -1813,7 +2039,8 @@ const plansData = [
         "indoor_outdoor": "Outdoor",
         "price": "Free",
         "eating": "No",
-        "done": "Yes"
+        "done": "Yes",
+        "id": "227",
     }
 ]; 
 
