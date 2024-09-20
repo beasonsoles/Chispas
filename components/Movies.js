@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
+import moviesData from '../assets/data/moviesData';
 import colors from '../assets/colors/colors.js';
 
 export default Movies = ({ navigation }) => {
@@ -16,7 +17,9 @@ export default Movies = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
-            <Text>Movies</Text>
+            <ScrollView contentInsetAdjustmentBehavior='automatic' showsVerticalScrollIndicator={false}>
+                <Text>Movies</Text>
+            </ScrollView>
         </View>
     );
 };

@@ -1,7 +1,8 @@
 
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
+import plansData from '../assets/data/plansData';
 import colors from '../assets/colors/colors.js';
 
 export default Plans = ({ navigation }) => {
@@ -17,7 +18,9 @@ export default Plans = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
-            <Text>Plan</Text>
+            <ScrollView contentInsetAdjustmentBehavior='automatic' showsVerticalScrollIndicator={false}>
+                <Text>Plans</Text>
+            </ScrollView>
         </View>
     );
 };
