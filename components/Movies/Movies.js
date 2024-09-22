@@ -2,12 +2,9 @@ import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, FlatList
 import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import * as SQLite from 'expo-sqlite';
 
 import colors from '../../assets/colors/colors.js';
 import moviesData from '../../assets/data/moviesData.js'; // REMOVE THIS
-
-const db = await SQLite.openDatabaseAsync('../assets/data/chispas.db');
 
 export default Movies = ({ navigation }) => {
     const [movie, setMovie] = useState();
@@ -22,7 +19,7 @@ export default Movies = ({ navigation }) => {
     const renderMovie = ({ item }) => {
         return (
             <View style={styles.movieWrapper}>
-                <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('Movies/MovieDetails', { movie: item })}>
+                <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('MovieDetails', { movie: item })}>
                     <Text style={styles.movieTitle}>{item.title}</Text>
                     <View style={styles.movieInfoWrapper}>
                         <View style={styles.movieInfo}>
@@ -39,7 +36,6 @@ export default Movies = ({ navigation }) => {
                     </View>
                 </TouchableOpacity>
             </View>
-            
         );
     };
 

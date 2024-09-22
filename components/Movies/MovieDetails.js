@@ -1,9 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 
-export default MovieDetails = () => {
+export default MovieDetails = ({ route, navigation }) => {
+    const { movie } = route.params;
+
     return (
         <View style={styles.container}>
-            <Text>Movie Card</Text>
+            <Text>Movie Card {movie.title} </Text>
         </View>
     );
 };
