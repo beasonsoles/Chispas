@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 
-export default PlanDetails = ({ navigate, route }) => {
+export default EditPlan = ({ navigate, route }) => {
     return (
         <View style={styles.container}>
             <Text>Plan Card</Text>

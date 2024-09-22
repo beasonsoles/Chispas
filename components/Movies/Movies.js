@@ -1,13 +1,24 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, FlatList } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSQLiteContext } from 'expo-sqlite/next';
 import Feather from 'react-native-vector-icons/Feather';
 
 import colors from '../../assets/colors/colors.js';
-import moviesData from '../../assets/data/moviesData.js'; // REMOVE THIS
 
 export default Movies = ({ navigation }) => {
-    const [movie, setMovie] = useState();
+    const [movieSearch, setMovieSearch] = useState();
+    const [moviesData, setMoviesData] = useState([]);
+    const db = useSQLiteContext();
+
+    useEffect(() => {
+        getMovies();
+    }, []);
+
+    async function getMovies() {
+        const result = await db.getAllAsync(`SELECT * FROM Movies ORDER BY id ASC;`);
+        setMoviesData(result);
+    }
 
     const platformLogos = {
         Netflix: require('../../assets/images/netflix.png'),
@@ -58,8 +69,8 @@ export default Movies = ({ navigation }) => {
                 inputContainerStyle={styles.searchBarInput}
                 inputStyle={styles.inputText}
                 placeholder='Search for a movie'
-                value={movie}
-                onChangeText={text => setMovie(text)}
+                value={movieSearch}
+                onChangeText={text => setMovieSearch(text)}
             />
             { /* Plan List */ }
             <FlatList

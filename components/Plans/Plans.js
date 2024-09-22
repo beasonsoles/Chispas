@@ -2,14 +2,25 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert, FlatList } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { useState, useEffect } from 'react';
+import { useSQLiteContext } from 'expo-sqlite/next';
 import Feather from 'react-native-vector-icons/Feather';
 
-import initialPlansData from '../../assets/data/plansData.js';
 import colors from '../../assets/colors/colors.js';
 
 export default Plans = ({ navigation }) => {
-    const [plansData, setPlansData] = useState(initialPlansData);
-    const [plan, setPlan] = useState();
+    const [planSearch, setPlanSearch] = useState();
+    const [plansData, setPlansData] = useState([]);
+    const [iconStates, setIconStates] = useState({});
+    const db = useSQLiteContext();
+
+    useEffect(() => {
+        getPlans();
+    }, []);
+
+    async function getPlans() {
+        const result = await db.getAllAsync(`SELECT * FROM Plans ORDER BY id ASC;`);
+        setPlansData(result);
+    }
 
     const deleteAlert = () => {
         Alert.alert(
@@ -29,14 +40,11 @@ export default Plans = ({ navigation }) => {
         );
     };
 
-    const [iconStates, setIconStates] = useState({});
-
     useEffect(() => {
-        const initialIconStates = {};
         plansData.forEach((item) => {
-            initialIconStates[item.id] = item.done === 'Yes' ? 'check' : 'x';
+            iconStates[item.id] = item.done === 'Yes' ? 'check' : 'x';
         });
-        setIconStates(initialIconStates);
+        setIconStates(iconStates);
     }, []);
 
     const toggleIcon = (planId) => {
@@ -58,7 +66,7 @@ export default Plans = ({ navigation }) => {
     };
 
     const renderPlan = ({ item }) => {
-        const currentIcon = iconStates[item.id] || 'x';
+        const currentIcon = item.done === 'Yes' ? 'check' : 'x';
 
         return (
             <View style={styles.planWrapper}>
@@ -106,8 +114,8 @@ export default Plans = ({ navigation }) => {
                 inputContainerStyle={styles.searchBarInput}
                 inputStyle={styles.inputText}
                 placeholder='Search for a plan'
-                value={plan}
-                onChangeText={text => setPlan(text)}
+                value={planSearch}
+                onChangeText={text => setPlanSearch(text)}
             />
             { /* Plan List */ }
             <FlatList
