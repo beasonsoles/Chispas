@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 
 import Home from './components/Home';
-import Movies from './components/Movies';
-import Plans from './components/Plans';
+import Movies from './components/Movies/Movies';
+import Plans from './components/Plans/Plans';
 
 SplashScreen.preventAutoHideAsync();
 

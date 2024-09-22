@@ -1,23 +1,41 @@
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, FlatList } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { useState } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
+import * as SQLite from 'expo-sqlite';
 
-import plansData from '../assets/data/plansData';
-import colors from '../assets/colors/colors.js';
+import colors from '../../assets/colors/colors.js';
+import moviesData from '../../assets/data/moviesData.js'; // REMOVE THIS
 
-export default Plans = ({ navigation }) => {
-    const [plan, setPlan] = useState();
+const db = await SQLite.openDatabaseAsync('../assets/data/chispas.db');
 
-    const renderPlan = ({ item }) => {
+export default Movies = ({ navigation }) => {
+    const [movie, setMovie] = useState();
+
+    const platformLogos = {
+        Netflix: require('../../assets/images/netflix.png'),
+        Disneyplus: require('../../assets/images/disneyplus.jpeg'),
+        Prime: require('../../assets/images/prime.png'),
+        Max: require('../../assets/images/hbo.jpg'),
+      };
+
+    const renderMovie = ({ item }) => {
         return (
-            <View style={styles.planWrapper}>
-                <TouchableOpacity style={styles.planCard} onPress={() => navigation.navigate('PlanDetails', { plan: item })}>
-                    <Text style={styles.planTitle}>{item.plan}</Text>
-                    <Text style={styles.planPrice}>{item.price}</Text>
-                    <View style={styles.locationWrapper}>
-                        <Feather name="map-pin" size={22} color={colors.textDark}/>
-                        <Text style={styles.planLocation}>{item.location}</Text>
+            <View style={styles.movieWrapper}>
+                <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('Movies/MovieDetails', { movie: item })}>
+                    <Text style={styles.movieTitle}>{item.title}</Text>
+                    <View style={styles.movieInfoWrapper}>
+                        <View style={styles.movieInfo}>
+                            <Feather name="clock" size={22} color={colors.textDark}/>
+                            <Text style={[styles.movieInfoText, {marginLeft: 4 }]}>{item.duration}</Text>
+                            <Text style={styles.movieInfoText}>{item.genre}</Text>
+                        </View>
+                        <View>
+                            <Image 
+                                source={platformLogos[item.platform]}
+                                style={styles.platformIcon}
+                            />
+                        </View>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -43,14 +61,14 @@ export default Plans = ({ navigation }) => {
                 containerStyle={styles.searchBarContainer} 
                 inputContainerStyle={styles.searchBarInput}
                 inputStyle={styles.inputText}
-                placeholder='Search for a plan'
-                value={plan}
-                onChangeText={text => setPlan(text)}
+                placeholder='Search for a movie'
+                value={movie}
+                onChangeText={text => setMovie(text)}
             />
             { /* Plan List */ }
             <FlatList
-                data={plansData}
-                renderItem={renderPlan}
+                data={moviesData}
+                renderItem={renderMovie}
                 keyExtractor={(item) => item.id}
             />
         </View>
@@ -94,11 +112,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Regular',
         fontSize: 14,
     },
-    planWrapper: {
+    movieWrapper: {
         paddingHorizontal: 30,
         paddingVertical: 10,
     },
-    planCard: {
+    movieCard: {
         paddingHorizontal: 30,
         paddingVertical: 20,
         borderRadius: 10,
@@ -106,22 +124,27 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: colors.lightBlue,
     },
-    planTitle: {
+    movieTitle: {
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 18,
         marginBottom: 15,
     },
-    planPrice: {
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 14,
-        marginBottom: 10,
+    movieInfoWrapper: {
+        flexDirection: 'row',
+        justifyContent:'space-between',
+        alignItems: 'center',
     },
-    planLocation: {
+    movieInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    movieInfoText: {
         fontFamily: 'Montserrat-Medium',
         color: colors.textDark,
-        marginLeft: 10,
+        marginLeft: 15,
     },
-    locationWrapper: {
-        flexDirection: 'row',
+    platformIcon: {
+        width: 30,
+        height: 30,
     }
 });
