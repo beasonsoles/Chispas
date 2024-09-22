@@ -10,7 +10,6 @@ import colors from '../../assets/colors/colors.js';
 export default Plans = ({ navigation }) => {
     const [planSearch, setPlanSearch] = useState();
     const [plansData, setPlansData] = useState([]);
-    const [iconStates, setIconStates] = useState({});
     const db = useSQLiteContext();
 
     useEffect(() => {
@@ -18,7 +17,7 @@ export default Plans = ({ navigation }) => {
     }, []);
 
     async function getPlans() {
-        const result = await db.getAllAsync(`SELECT * FROM Plans ORDER BY id ASC;`);
+        const result = await db.getAllAsync(`SELECT * FROM Plans ORDER BY plan ASC;`);
         setPlansData(result);
     }
 
@@ -40,29 +39,16 @@ export default Plans = ({ navigation }) => {
         );
     };
 
-    useEffect(() => {
-        plansData.forEach((item) => {
-            iconStates[item.id] = item.done === 'Yes' ? 'check' : 'x';
-        });
-        setIconStates(iconStates);
-    }, []);
+    const toggleIcon = async (id, currentStatus) => {
+        const newStatus = currentStatus === 'Yes' ? 'No' : 'Yes';
 
-    const toggleIcon = (planId) => {
-        setIconStates((prevState) => {
-            const newIconState = prevState[planId] === 'check' ? 'x' : 'check';
+        await db.runAsync(`UPDATE Plans SET done = ? WHERE id = ?;`, [newStatus, id]);
 
-            // Step 2: Update the plansData to change the "done" field
-            setPlansData((prevPlans) =>
-                prevPlans.map((plan) =>
-                    plan.id === planId ? { ...plan, done: newIconState === 'check' ? 'yes' : 'no' } : plan
-                )
-            );
-
-            return {
-                ...prevState,
-                [planId]: newIconState,
-            };
-        });
+        setPlansData((prevPlans) =>
+            prevPlans.map((plan) =>
+                plan.id === id ? { ...plan, done: newStatus } : plan
+            )
+        );
     };
 
     const renderPlan = ({ item }) => {
@@ -80,14 +66,14 @@ export default Plans = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.planOptionsWrapper}>
+                <View style={styles.optionsWrapper}>
                     <TouchableOpacity style={styles.button} onPress={deleteAlert}>
                         <Feather name="trash-2" size={25} color={colors.red}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => {}}>
                         <Feather name="edit-2" size={25} color={colors.textDark}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => toggleIcon(item.id)}>
+                    <TouchableOpacity style={styles.button} onPress={() => toggleIcon(item.id, item.done)}>
                         <Feather name={currentIcon} size={35} color={currentIcon === 'x' ? colors.black : colors.green} />
                     </TouchableOpacity>
                 </View>
@@ -117,12 +103,23 @@ export default Plans = ({ navigation }) => {
                 value={planSearch}
                 onChangeText={text => setPlanSearch(text)}
             />
-            { /* Plan List */ }
+            { /* Filter button */}
+            <TouchableOpacity style={styles.filterWrapper} onPress={() => {}}>
+                <Feather name="filter" size={25} color={colors.textDark}/>
+                <Text style={styles.filterText}>Filter</Text>
+            </TouchableOpacity>
+            { /* Plans List */ }
             <FlatList
                 data={plansData}
                 renderItem={renderPlan}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
             />
+            { /* Add Plan Button */ }
+            <View style={styles.footer}>
+                <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+                    <Feather name="plus" size={50} color={colors.textDark}/>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -157,18 +154,31 @@ const styles = StyleSheet.create({
         borderColor: colors.white,
         marginTop: 20,
         paddingHorizontal: 20,
-        marginBottom: 20,
-        
+        marginBottom: 20, 
     },
     inputText: {
         fontFamily: 'Montserrat-Regular',
+        fontSize: 14,
+    },
+    filterWrapper: {
+        flexDirection: 'row',
+        backgroundColor: colors.textLight,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 100,
+        paddingVertical: 10,
+        marginBottom: 10,
+        borderRadius: 10,
+    },
+    filterText: {
+        fontFamily: 'Montserrat-SemiBold',
         fontSize: 14,
     },
     planWrapper: {
         paddingHorizontal: 30,
         paddingVertical: 10,
     },
-    planOptionsWrapper: {
+    optionsWrapper: {
         flexDirection: 'row',
         justifyContent:'space-between',
         alignItems: 'center',
@@ -211,6 +221,22 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    footer: {
+        flexDirection: 'row',
+        paddingVertical: 10,
+        justifyContent: 'center',
+        alignContent: 'center',
+        borderTopColor: colors.black,
+        borderTopWidth: 2,
+    },
+    addButton: {
+        width: 70,
+        height: 70,
+        backgroundColor: colors.textLight,
+        borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
     },

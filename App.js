@@ -51,9 +51,9 @@ export default function App() {
 
   if (!fontsLoaded || !dbLoaded) {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" />
-        <Text>Loading Database...</Text>
+        <Text style={{fontSize: 26, fontWeight: 'bold'}}>Loading Database...</Text>
       </View>
     );
   } else {
@@ -63,9 +63,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Suspense fallback={
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <ActivityIndicator size="large" />
-            <Text>Loading Database...</Text>
+            <Text style={{fontSize: 26, fontWeight: 'bold'}}>Loading Database...</Text>
           </View>}
         >
         <SQLiteProvider databaseName="chispas.db" useSuspense>

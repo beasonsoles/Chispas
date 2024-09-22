@@ -1,4 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, FlatList } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, Alert, FlatList } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { useState, useEffect } from 'react';
 import { useSQLiteContext } from 'expo-sqlite/next';
@@ -16,7 +17,7 @@ export default Movies = ({ navigation }) => {
     }, []);
 
     async function getMovies() {
-        const result = await db.getAllAsync(`SELECT * FROM Movies ORDER BY id ASC;`);
+        const result = await db.getAllAsync(`SELECT * FROM Movies ORDER BY title ASC;`);
         setMoviesData(result);
     }
 
@@ -25,27 +26,72 @@ export default Movies = ({ navigation }) => {
         Disneyplus: require('../../assets/images/disneyplus.jpeg'),
         Prime: require('../../assets/images/prime.png'),
         Max: require('../../assets/images/hbo.jpg'),
-      };
+    };
+
+    const deleteAlert = () => {
+        Alert.alert(
+            'Delete Plan',
+            'Are you sure you want to delete this plan?',
+            [
+              {
+                text: 'NO',
+                onPress: () => console.log('Cancel'),
+                style: 'cancel',
+              },
+              {
+                text: 'YES',
+                onPress: () => console.log('OK Pressed') // add code that deletes the plan
+              },
+            ],
+        );
+    };
+
+    const toggleIcon = async (id, currentStatus) => {
+        const newStatus = currentStatus === 'Watched' ? 'Not watched' : 'Watched';
+
+        await db.runAsync(`UPDATE Movies SET status = ? WHERE id = ?;`, [newStatus, id]);
+
+        setMoviesData((prevMovies) =>
+            prevMovies.map((movie) =>
+                movie.id === id ? { ...movie, status: newStatus } : movie
+            )
+        );
+    };
 
     const renderMovie = ({ item }) => {
+        const currentIcon = item.status === 'Watched' ? 'check' : 'x';
+
         return (
             <View style={styles.movieWrapper}>
-                <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('MovieDetails', { movie: item })}>
-                    <Text style={styles.movieTitle}>{item.title}</Text>
-                    <View style={styles.movieInfoWrapper}>
-                        <View style={styles.movieInfo}>
-                            <Feather name="clock" size={22} color={colors.textDark}/>
-                            <Text style={[styles.movieInfoText, {marginLeft: 4 }]}>{item.duration}</Text>
-                            <Text style={styles.movieInfoText}>{item.genre}</Text>
+                <View>
+                    <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('MovieDetails', { movie: item })}>
+                        <Text style={styles.movieTitle}>{item.title}</Text>
+                        <View style={styles.movieInfoWrapper}>
+                            <View style={styles.movieInfo}>
+                                <Feather name="clock" size={22} color={colors.textDark}/>
+                                <Text style={[styles.movieInfoText, {marginLeft: 4 }]}>{item.duration}</Text>
+                                <Text style={styles.movieInfoText}>{item.genre}</Text>
+                            </View>
+                            <View>
+                                <Image 
+                                    source={platformLogos[item.platform]}
+                                    style={styles.platformIcon}
+                                />
+                            </View>
                         </View>
-                        <View>
-                            <Image 
-                                source={platformLogos[item.platform]}
-                                style={styles.platformIcon}
-                            />
-                        </View>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.optionsWrapper}>
+                    <TouchableOpacity style={styles.button} onPress={deleteAlert}>
+                        <Feather name="trash-2" size={25} color={colors.red}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => {}}>
+                        <Feather name="edit-2" size={25} color={colors.textDark}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => toggleIcon(item.id, item.status)}>
+                        <Feather name={currentIcon} size={35} color={currentIcon === 'x' ? colors.black : colors.green} />
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     };
@@ -72,12 +118,23 @@ export default Movies = ({ navigation }) => {
                 value={movieSearch}
                 onChangeText={text => setMovieSearch(text)}
             />
-            { /* Plan List */ }
+            { /* Filter button */}
+            <TouchableOpacity style={styles.filterWrapper} onPress={() => {}}>
+                <Feather name="filter" size={25} color={colors.textDark}/>
+                <Text style={styles.filterText}>Filter</Text>
+            </TouchableOpacity>
+            { /* Movies List */ }
             <FlatList
                 data={moviesData}
                 renderItem={renderMovie}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
             />
+            { /* Add Movie Button */ }
+            <View style={styles.footer}>
+                <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+                    <Feather name="plus" size={50} color={colors.textDark}/>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -113,23 +170,47 @@ const styles = StyleSheet.create({
         marginTop: 20,
         paddingHorizontal: 20,
         marginBottom: 20,
-        
     },
     inputText: {
         fontFamily: 'Montserrat-Regular',
+        fontSize: 14,
+    },
+    filterWrapper: {
+        flexDirection: 'row',
+        backgroundColor: colors.textLight,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 100,
+        paddingVertical: 10,
+        marginBottom: 10,
+        borderRadius: 10,
+    },
+    filterText: {
+        fontFamily: 'Montserrat-SemiBold',
         fontSize: 14,
     },
     movieWrapper: {
         paddingHorizontal: 30,
         paddingVertical: 10,
     },
+    optionsWrapper: {
+        flexDirection: 'row',
+        justifyContent:'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 30,
+        paddingVertical: 20,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        backgroundColor: colors.lightBlue,
+    },
     movieCard: {
         paddingHorizontal: 30,
         paddingVertical: 20,
-        borderRadius: 10,
-        borderColor: colors.lightBlue,
-        borderWidth: 2,
+        borderTopRightRadius: 10,
+        borderTopLeftRadius: 10,
         backgroundColor: colors.lightBlue,
+        borderBottomColor: colors.textDark,
+        borderBottomWidth: 2,
     },
     movieTitle: {
         fontFamily: 'Montserrat-SemiBold',
@@ -153,5 +234,30 @@ const styles = StyleSheet.create({
     platformIcon: {
         width: 30,
         height: 30,
-    }
+    },
+    button: {
+        borderColor: colors.black,
+        borderWidth: 2,
+        width: 40,
+        height: 40,
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    footer: {
+        flexDirection: 'row',
+        paddingVertical: 10,
+        justifyContent: 'center',
+        alignContent: 'center',
+        borderTopColor: colors.black,
+        borderTopWidth: 2,
+    },
+    addButton: {
+        width: 70,
+        height: 70,
+        backgroundColor: colors.textLight,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
