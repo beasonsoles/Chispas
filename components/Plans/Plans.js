@@ -116,7 +116,7 @@ export default Plans = ({ navigation }) => {
             />
             { /* Add Plan Button */ }
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('NewPlan')}>
                     <Feather name="plus" size={50} color={colors.textDark}/>
                 </TouchableOpacity>
             </View>
@@ -137,8 +137,8 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     headerLeft: {
-        borderColor: colors.textLight,
-        backgroundColor: colors.lightBlue,
+        borderColor: colors.black,
+        backgroundColor: colors.textLight,
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,

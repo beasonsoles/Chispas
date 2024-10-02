@@ -110,7 +110,7 @@ export default Movies = ({ navigation }) => {
             </SafeAreaView>
             { /* Search Bar */ }
             <SearchBar
-                lightTheme={true} 
+                lightTheme={true}
                 containerStyle={styles.searchBarContainer} 
                 inputContainerStyle={styles.searchBarInput}
                 inputStyle={styles.inputText}
@@ -131,7 +131,7 @@ export default Movies = ({ navigation }) => {
             />
             { /* Add Movie Button */ }
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('NewMovie')}>
                     <Feather name="plus" size={50} color={colors.textDark}/>
                 </TouchableOpacity>
             </View>
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     headerLeft: {
-        borderColor: colors.textLight,
-        backgroundColor: colors.lightBlue,
+        borderColor: colors.black,
+        backgroundColor: colors.textLight,
         borderWidth: 2,
         padding: 10,
         borderRadius: 10,

@@ -1,9 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 
-export default PlanDetails = ({ navigate, route }) => {
+export default PlanDetails = ({ route, navigation }) => {
+
+    const { plan } = route.params;
+
     return (
         <View style={styles.container}>
-            <Text>Plan Card</Text>
+            <Text>Plan Card {plan.plan}</Text>
         </View>
     );
 };
