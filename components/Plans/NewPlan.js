@@ -50,6 +50,7 @@ export default NewPlan = ({ navigation }) => {
                     value={name}
                     onChangeText={setName}
                 />
+
                 <Text style={styles.titleText}>Price</Text>
                 <View style={styles.priceWrapper}>
                     <TextInput 
@@ -61,6 +62,7 @@ export default NewPlan = ({ navigation }) => {
                     />
                     <Text style={styles.currencySymbol}>€</Text>
                 </View>
+
                 <Text style={styles.titleText}>Location</Text>
                 <TextInput
                     style={styles.input} 
@@ -68,6 +70,7 @@ export default NewPlan = ({ navigation }) => {
                     value={location}
                     onChangeText={setLocation}
                 />
+
                 <Text style={styles.titleText}>Indoor/Outdoor</Text>
                 <Dropdown
                     style={styles.dropdown}
@@ -82,6 +85,7 @@ export default NewPlan = ({ navigation }) => {
                         setInOutValue(item.value);
                     }}
                 />
+
                 <Text style={styles.titleText}>Involves Eating</Text>
                 <Dropdown
                     style={styles.dropdown}
@@ -96,6 +100,7 @@ export default NewPlan = ({ navigation }) => {
                         setEatingValue(item.value);
                     }}
                 />
+                
                 <Text style={styles.titleText}>Completed</Text>
                 <Dropdown
                     style={styles.dropdown}

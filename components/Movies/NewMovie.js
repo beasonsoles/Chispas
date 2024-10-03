@@ -21,12 +21,11 @@ export default NewMovie = ({ navigation }) => {
         { label: 'Action', value: '5'},
         { label: 'Fantasy', value: '6'},
         { label: 'Animation', value: '7'},
-        { label: 'Comedy; Drama', value: '8'},
-        { label: 'Documentary', value: '9'},
-        { label: 'Horror', value: '10'},
-        { label: 'Biography', value: '11'},
-        { label: 'Musical', value: '12'},
-        { label: 'Adventure', value: '13'},
+        { label: 'Documentary', value: '8'},
+        { label: 'Horror', value: '9'},
+        { label: 'Biography', value: '10'},
+        { label: 'Musical', value: '11'},
+        { label: 'Adventure', value: '12'},
     ];
 
     const platform_data = [
@@ -71,6 +70,7 @@ export default NewMovie = ({ navigation }) => {
                     value={title}
                     onChangeText={setTitle}
                 />
+
                 <Text style={styles.titleText}>Type</Text>
                 <Dropdown
                     style={styles.dropdown}
@@ -85,6 +85,7 @@ export default NewMovie = ({ navigation }) => {
                         setTypeValue(item.value);
                     }}
                 />
+
                 <Text style={styles.titleText}>Duration</Text>
                 {/* Conditionally render input fields based on selected type */}
                 {type_value === '1' || type_value === '3' ? (
@@ -135,6 +136,7 @@ export default NewMovie = ({ navigation }) => {
                         setGenreValue(item.value);
                     }}
                 />
+
                 <Text style={styles.titleText}>Platform</Text>
                 <Dropdown
                     style={styles.dropdown}
@@ -151,6 +153,7 @@ export default NewMovie = ({ navigation }) => {
                         setPlatformValue(item.value);
                     }}
                 />
+                
                 <Text style={styles.titleText}>Status</Text>
                 <Dropdown
                     style={styles.dropdown}

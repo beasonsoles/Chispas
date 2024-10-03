@@ -169,6 +169,8 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         marginBottom: 10,
         borderRadius: 10,
+        borderColor: colors.black,
+        borderWidth: 2,
     },
     filterText: {
         fontFamily: 'Montserrat-SemiBold',
@@ -239,5 +241,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
+        borderColor: colors.black,
+        borderWidth: 2,
     },
 });
