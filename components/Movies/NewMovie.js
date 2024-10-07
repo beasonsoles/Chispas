@@ -212,7 +212,7 @@ export default NewMovie = ({ navigation }) => {
                         maxHeight={300}
                         labelField="label"
                         valueField="value"
-                        placeholder="Select an option"
+                        placeholder="None (default)"
                         value={platform_value}
                         onChange={item => {
                             setPlatformValue(item);
