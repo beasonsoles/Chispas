@@ -1,12 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView, ScrollView, Alert } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import { Dropdown } from 'react-native-element-dropdown';
+import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
+import { useSQLiteContext } from 'expo-sqlite/next';
 
 import colors from '../../assets/colors/colors.js';
 
 export default NewPlan = ({ navigation }) => {
+    const db = useSQLiteContext();
+
     const in_out_data = [
         { label: 'Indoor', value: '1'},
         { label: 'Outdoor', value: '2'},
@@ -26,8 +29,47 @@ export default NewPlan = ({ navigation }) => {
     const [price, setPrice] = useState('');
     const [location, setLocation] = useState('');
     const [in_out_value, setInOutValue] = useState(in_out_data[0].value);
-    const [eating_value, setEatingValue] = useState(eating_data[0].value);
-    const [status_value, setStatusValue] = useState(status_data[0].value);
+    const [eating_value, setEatingValue] = useState(eating_data[1].value);
+    const [status_value, setStatusValue] = useState(status_data[1].value);
+
+    const checkForm = () => {
+        if (name.trim().length === 0) {
+            Alert.alert("The 'name' field cannot be empty");
+            return false;
+        }
+        if (price.trim().length === 0) {
+            Alert.alert("The 'price' field cannot be empty");
+            return false;
+        }
+        if (location.trim().length === 0) {
+            Alert.alert("The 'location' field cannot be empty");
+            return false;
+        }
+        return true;
+    }
+
+    const savePlan = async () => {
+        const save = checkForm();
+        if (save) {
+            // handling price format
+            let precio = '';
+            let lugar = '';
+            if (price === '0') {
+                precio = 'Free';
+            } else {
+                let float_price = parseFloat(price.replace(',', '.'));
+                precio = float_price % 1 === 0 ? float_price.toFixed(0).toString() + '€' : float_price.toFixed(2).toString() + '€';
+            }
+            lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
+
+            // inserting movie into the database
+            //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+            await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+
+            Alert.alert(`Plan '${name}' successfully added!`, 'Refresh the page to view the changes');
+            navigation.goBack();
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -118,7 +160,7 @@ export default NewPlan = ({ navigation }) => {
             </View>
             { /* Save button */}
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity style={styles.saveButton} onPress={() => {}}>
+                <TouchableOpacity style={styles.saveButton} onPress={() => savePlan()}>
                     <Text style={[styles.titleText, {fontFamily: 'Montserrat-SemiBold'}]}>Save</Text>
                 </TouchableOpacity>
             </View>

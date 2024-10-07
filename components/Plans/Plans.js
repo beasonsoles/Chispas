@@ -21,19 +21,22 @@ export default Plans = ({ navigation }) => {
         setPlansData(result);
     }
 
-    const deleteAlert = () => {
+    const deleteAlert = (id) => {
         Alert.alert(
             'Delete Plan',
             'Are you sure you want to delete this plan?',
             [
               {
                 text: 'NO',
-                onPress: () => console.log('Cancel'),
+                onPress: () => console.log(`Cancel ${id}`),
                 style: 'cancel',
               },
               {
                 text: 'YES',
-                onPress: () => console.log('OK Pressed') // add code that deletes the plan
+                onPress: () => {
+                    db.runAsync(`DELETE FROM Plans WHERE id = ${id};`);
+                    Alert.alert('Plan deleted successfully!', 'Refresh the page to view the changes');
+                },
               },
             ],
         );
@@ -57,20 +60,20 @@ export default Plans = ({ navigation }) => {
         return (
             <View style={styles.planWrapper}>
                 <View>
-                    <TouchableOpacity style={styles.planCard} onPress={() => navigation.navigate('PlanDetails', { plan: item })}>
+                    <View style={styles.planCard}>
                         <Text style={styles.planTitle}>{item.plan}</Text>
                         <Text style={styles.planPrice}>{item.price}</Text>
                         <View style={styles.locationWrapper}>
                             <Feather name="map-pin" size={22} color={colors.textDark}/>
                             <Text style={styles.planLocation}>{item.location}</Text>
                         </View>
-                    </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={styles.optionsWrapper}>
-                    <TouchableOpacity style={styles.button} onPress={deleteAlert}>
+                    <TouchableOpacity style={styles.button} onPress={() => deleteAlert(item.id)}>
                         <Feather name="trash-2" size={25} color={colors.red}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {}}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EditPlan', item)}>
                         <Feather name="edit-2" size={25} color={colors.textDark}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => toggleIcon(item.id, item.done)}>

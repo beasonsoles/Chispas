@@ -67,19 +67,22 @@ export default Movies = ({ navigation }) => {
         });
     };
 
-    const deleteAlert = () => {
+    const deleteAlert = (id) => {
         Alert.alert(
-            'Delete Plan',
-            'Are you sure you want to delete this plan?',
+            'Delete Movie',
+            'Are you sure you want to delete this movie?',
             [
               {
                 text: 'NO',
-                onPress: () => console.log('Cancel'),
+                onPress: () => console.log(`Cancel ${id}`),
                 style: 'cancel',
               },
               {
                 text: 'YES',
-                onPress: () => console.log('OK Pressed') // add code that deletes the plan
+                onPress: () => {
+                    db.runAsync(`DELETE FROM Movies WHERE id = ${id};`);
+                    Alert.alert('Movie deleted successfully!', 'Refresh the page to view the changes');
+                },
               },
             ],
         );
@@ -103,7 +106,7 @@ export default Movies = ({ navigation }) => {
         return (
             <View style={styles.movieWrapper}>
                 <View>
-                    <TouchableOpacity style={styles.movieCard} onPress={() => navigation.navigate('MovieDetails', { movie: item })}>
+                    <View style={styles.movieCard}>
                         <Text style={styles.movieTitle}>{item.title}</Text>
                         <View style={styles.movieInfoWrapper}>
                             <View style={styles.movieInfo}>
@@ -112,11 +115,11 @@ export default Movies = ({ navigation }) => {
                                 <Text style={styles.movieInfoText}>{item.genre}</Text>
                             </View>
                             <View style={{flexDirection: 'row', paddingLeft: 10 }}>
-                                {platforms.map((platformName, index) => {
+                                {platforms.map((platformName) => {
                                     const platform = platformLogos.find(logo => logo.name === platformName);
                                     return platform ? (
                                         <Image 
-                                            key={index}
+                                            key={platform.name}
                                             source={platform.logo}
                                             style={styles.platformIcon}
                                         />
@@ -124,13 +127,13 @@ export default Movies = ({ navigation }) => {
                                 })}
                             </View>
                         </View>
-                    </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={styles.optionsWrapper}>
-                    <TouchableOpacity style={styles.button} onPress={deleteAlert}>
+                    <TouchableOpacity style={styles.button} onPress={() => deleteAlert(item.id)}>
                         <Feather name="trash-2" size={25} color={colors.red}/>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => {}}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EditMovie', item)}>
                         <Feather name="edit-2" size={25} color={colors.textDark}/>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={() => toggleIcon(item.id, item.status)}>
@@ -257,12 +260,11 @@ export default Movies = ({ navigation }) => {
 
                     <Text style={styles.titleText}>Platform</Text>
                     <View style={styles.platformsWrapper}>
-                        {platformLogos.map((platform, index) => {
+                        {platformLogos.map((platform) => {
                             const isSelected = selectedPlatforms.includes(platform.name);
                             return (
-                                <View style={[styles.platformButton, {backgroundColor: isSelected ? colors.textLight : colors.white}]}>
+                                <View key={platform.name} style={[styles.platformButton, {backgroundColor: isSelected ? colors.textLight : colors.white}]}>
                                     <TouchableOpacity 
-                                        key={index}
                                         onPress={() => handlePlatformSelect(platform.name)}
                                     >
                                         <Image
@@ -273,6 +275,12 @@ export default Movies = ({ navigation }) => {
                                 </View>
                             )
                         })}
+                    </View>
+                    { /* Save button */}
+                    <View style={styles.buttonWrapper}>
+                        <TouchableOpacity style={styles.filterButton} onPress={() => {}}>
+                            <Text style={[styles.titleText, {fontFamily: 'Montserrat-SemiBold'}]}>Filter</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 </Modal>
@@ -387,8 +395,8 @@ const styles = StyleSheet.create({
         marginLeft: 15,
     },
     platformIcon: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         marginLeft: 5,
     },
     platformButton: {
@@ -474,6 +482,22 @@ const styles = StyleSheet.create({
     selectedStyle: {
         borderRadius: 17,
         paddingHorizontal: 5,
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+        marginTop: 30,
+        justifyContent: 'center',
+        alignContent: 'center',
+    },
+    filterButton: {
+        width: 120,
+        height: 60,
+        backgroundColor: colors.textLight,
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: colors.black,
+        borderWidth: 2,
     },
     footer: {
         flexDirection: 'row',

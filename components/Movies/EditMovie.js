@@ -7,8 +7,10 @@ import { useSQLiteContext } from 'expo-sqlite/next';
 
 import colors from '../../assets/colors/colors.js';
 
-export default NewMovie = ({ navigation }) => {
+export default EditMovie = ({ route, navigation }) => {
     const db = useSQLiteContext();
+
+    const { movie } = route.params;
 
     const type_data = [
         { label: 'Movie', value: '1'},
@@ -105,7 +107,7 @@ export default NewMovie = ({ navigation }) => {
 
             // inserting movie into the database
             //console.log(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
-            await db.runAsync(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
+            //await db.runAsync(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
 
             Alert.alert(`Movie '${title}' successfully added!`, 'Refresh the page to view the changes');
             navigation.goBack();

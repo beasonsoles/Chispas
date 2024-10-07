@@ -15,6 +15,8 @@ import MovieDetails from './components/Movies/MovieDetails';
 import PlanDetails from './components/Plans/PlanDetails';
 import NewMovie from './components/Movies/NewMovie';
 import NewPlan from './components/Plans/NewPlan';
+import EditMovie from './components/Movies/EditMovie';
+import EditPlan from './components/Plans/EditPlan';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -80,6 +82,8 @@ export default function App() {
             <Stack.Screen name="PlanDetails" component={PlanDetails} options={{headerShown: false}}/>
             <Stack.Screen name="NewMovie" component={NewMovie} options={{headerShown: false}}/>
             <Stack.Screen name="NewPlan" component={NewPlan} options={{headerShown: false}}/>
+            <Stack.Screen name="EditMovie" component={EditMovie} options={{headerShown: false}}/>
+            <Stack.Screen name="EditPlan" component={EditPlan} options={{headerShown: false}}/>
           </Stack.Navigator>
         </SQLiteProvider>
       </Suspense>
