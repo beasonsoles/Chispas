@@ -9,9 +9,9 @@ import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
 import colors from '../../assets/colors/colors.js';
 
 export default Movies = ({ navigation }) => {
-    const [movieSearch, setMovieSearch] = useState();
-    const [moviesData, setMoviesData] = useState([]);
-    const [modalVisible, setModalVisible] = useState(false);
+    let [movieSearch, setMovieSearch] = useState();
+    let [moviesData, setMoviesData] = useState([]);
+    let [modalVisible, setModalVisible] = useState(false);
     const db = useSQLiteContext();
 
     useEffect(() => {
@@ -44,7 +44,7 @@ export default Movies = ({ navigation }) => {
         { label: 'Adventure', value: '13'},
     ];
     const [type_value, setTypeValue] = useState(type_data[0].value);
-    const [genre_value, setGenreValue] = useState([]);
+    const [genre_value, setGenreValue] = useState([genre_data[0].value]);
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
     const [episodes, setEpisodes] = useState('');
@@ -99,6 +99,14 @@ export default Movies = ({ navigation }) => {
             )
         );
     };
+
+    const filter = () => {
+        let type = type_value;
+        if (genre_value.length > 0 && genre_value[0] !== "1") {
+            genre_value.map(item => console.log(item));
+        }
+        return null;
+    }
 
     const renderMovie = ({ item }) => {
         const currentIcon = item.status === 'Watched' ? 'check' : 'x';
@@ -171,6 +179,9 @@ export default Movies = ({ navigation }) => {
                 <Feather name="filter" size={25} color={colors.textDark}/>
                 <Text style={styles.filterText}>Filter</Text>
             </TouchableOpacity>
+            <View style={styles.filterResults}>
+                <Text style={styles.filterText}>{moviesData.length} results</Text>
+            </View>
             { /* Pop-up */}
             <View style={styles.modalWrapper}>
                 <Modal
@@ -183,7 +194,7 @@ export default Movies = ({ navigation }) => {
                 >
                 <View style={styles.modalContent}>
                     { /* Pop up back button */}
-                    <View style={[styles.headerWrapper, {paddingHorizontal: 0, paddingTop: 0,}]}>
+                    <View style={[styles.headerWrapper, {paddingHorizontal: 0, paddingTop: 0}]}>
                         <TouchableOpacity onPress={() => setModalVisible(false)}>
                             <View style={styles.headerLeft}>
                                 <Feather name="x" size={20} color={colors.textDark}/>
@@ -191,6 +202,7 @@ export default Movies = ({ navigation }) => {
                         </TouchableOpacity>
                         <Text style={styles.modalTitle}>Filter</Text>
                     </View>
+                    { /* Pop up fields */ }
                     <Text style={[styles.titleText, {marginTop: 20}]}>Type</Text>
                     <Dropdown
                         style={styles.dropdown}
@@ -224,7 +236,7 @@ export default Movies = ({ navigation }) => {
                         selectedStyle={styles.selectedStyle}
                     />  
 
-                    <Text style={styles.titleText}>Duration</Text>
+                    <Text style={styles.titleText}>Maximum Duration</Text>
                     {/* Conditionally render input fields based on selected type */}
                     {type_value === '1' || type_value === '3' ? (
                         <View style={styles.durationWrapper}>
@@ -278,7 +290,7 @@ export default Movies = ({ navigation }) => {
                     </View>
                     { /* Save button */}
                     <View style={styles.buttonWrapper}>
-                        <TouchableOpacity style={styles.filterButton} onPress={() => {}}>
+                        <TouchableOpacity style={styles.filterButton} onPress={() => filter()}>
                             <Text style={[styles.titleText, {fontFamily: 'Montserrat-SemiBold'}]}>Filter</Text>
                         </TouchableOpacity>
                     </View>
@@ -349,8 +361,13 @@ const styles = StyleSheet.create({
         borderWidth: 2,
     },
     filterText: {
-        fontFamily: 'Montserrat-SemiBold',
+        fontFamily: 'Montserrat-Bold',
         fontSize: 14,
+    },
+    filterResults: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        padding: 10,
     },
     movieWrapper: {
         paddingHorizontal: 30,

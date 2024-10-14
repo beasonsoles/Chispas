@@ -10,7 +10,16 @@ import colors from '../../assets/colors/colors.js';
 export default EditMovie = ({ route, navigation }) => {
     const db = useSQLiteContext();
 
-    const { movie } = route.params;
+    // get the current values
+    let {
+        title: item_title,
+        type: item_type,
+        duration: item_duration,
+        genre: item_genre,
+        platform: item_platform,
+        status: item_status,
+        id: item_id
+    } = route.params;
 
     const type_data = [
         { label: 'Movie', value: '1'},
@@ -45,14 +54,42 @@ export default EditMovie = ({ route, navigation }) => {
         { label: 'Watched', value: '2'},
     ];
 
-    const [title, setTitle] = useState('');
-    const [hours, setHours] = useState('');
-    const [minutes, setMinutes] = useState('');
-    const [episodes, setEpisodes] = useState('');
-    const [type_value, setTypeValue] = useState(type_data[0].value);
-    const [genre_value, setGenreValue] = useState(null);
-    const [platform_value, setPlatformValue] = useState([]);
-    const [status_value, setStatusValue] = useState(status_data[0].value);
+    item_platform = item_platform
+        .replace("Prime", "Amazon Prime")
+        .replace("Disneyplus", "Disney+")
+        .replace("Max", "HBO Max");
+
+    //convert string with ; separator into an array
+    item_platform = item_platform.split("; ");
+
+    let curr_episodes = '';
+    let curr_hours = '';
+    let curr_minutes = '0';
+    if (item_duration.includes("ep")) {
+        curr_episodes = item_duration.split("ep")[0].trim();
+    } else {
+        curr_hours = item_duration.split("h")[0].trim();
+        if (item_duration.split("h ")[1]) {
+            curr_minutes = item_duration.split("h ")[1].split("m")[0].trim();
+        }
+    }
+    const curr_type = type_data.find(item => item.label === item_type).value;
+    const curr_genre = genre_data.find(item => item.label === item_genre).value;
+    const curr_platforms = platform_data.filter((item) => { 
+        return item_platform.some((curr_item) => {
+            return item.label === curr_item;
+        });
+    }).map(item => item.value);
+    const curr_status = status_data.find(item => item.label === item_status).value;
+
+    const [title, setTitle] = useState(item_title);
+    const [hours, setHours] = useState(curr_hours);
+    const [minutes, setMinutes] = useState(curr_minutes);
+    const [episodes, setEpisodes] = useState(curr_episodes);
+    const [type_value, setTypeValue] = useState(curr_type);
+    const [genre_value, setGenreValue] = useState(curr_genre);
+    const [platform_value, setPlatformValue] = useState(curr_platforms);
+    const [status_value, setStatusValue] = useState(curr_status);
 
     const checkForm = () => {
         if (title.trim().length === 0) {
@@ -106,8 +143,8 @@ export default EditMovie = ({ route, navigation }) => {
                 .replace("HBO Max", "Max");
 
             // inserting movie into the database
-            //console.log(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
-            //await db.runAsync(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
+            //console.log(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            await db.runAsync(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
 
             Alert.alert(`Movie '${title}' successfully added!`, 'Refresh the page to view the changes');
             navigation.goBack();

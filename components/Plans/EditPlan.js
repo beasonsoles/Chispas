@@ -20,7 +20,6 @@ export default EditPlan = ({ navigation, route }) => {
         done: item_done,
         id: item_id
     } = route.params;
-    console.log(item_plan, item_location, item_indoor_outdoor, item_price, item_eating, item_done, item_id);
 
     const in_out_data = [
         { label: 'Indoor', value: '1'},
@@ -37,12 +36,16 @@ export default EditPlan = ({ navigation, route }) => {
         { label: 'No', value: '2'},
     ];
 
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [location, setLocation] = useState('');
-    const [in_out_value, setInOutValue] = useState(in_out_data[0].value);
-    const [eating_value, setEatingValue] = useState(eating_data[1].value);
-    const [status_value, setStatusValue] = useState(status_data[1].value);
+    const curr_in_out = in_out_data.find(item => item.label === item_indoor_outdoor).value;
+    const curr_eating = eating_data.find(item => item.label === item_eating).value;
+    const curr_status = status_data.find(item => item.label === item_done).value;
+
+    const [name, setName] = useState(item_plan);
+    const [price, setPrice] = useState(item_price.replace('Free', '0').replace('€', ''));
+    const [location, setLocation] = useState(item_location);
+    const [in_out_value, setInOutValue] = useState(curr_in_out);
+    const [eating_value, setEatingValue] = useState(curr_eating);
+    const [status_value, setStatusValue] = useState(curr_status);
 
     const checkForm = () => {
         if (name.trim().length === 0) {
@@ -74,10 +77,9 @@ export default EditPlan = ({ navigation, route }) => {
             }
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
-            // inserting movie into the database
-            //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
-            //await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
-
+            // updating movie in the database
+            //console.log(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = '${precio}', eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            await db.runAsync(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = '${precio}', eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             Alert.alert(`Plan '${name}' successfully added!`, 'Refresh the page to view the changes');
             navigation.goBack();
         }
@@ -96,80 +98,82 @@ export default EditPlan = ({ navigation, route }) => {
                 </View>
             </SafeAreaView>
             { /* Fields */}
-            <View style={styles.fieldsContainer}>
-                <Text style={styles.titleText}>Plan Name</Text>
-                <TextInput 
-                    style={styles.input} 
-                    placeholder="Plan name"
-                    value={name}
-                    onChangeText={setName}
-                />
-
-                <Text style={styles.titleText}>Price</Text>
-                <View style={styles.priceWrapper}>
+            <ScrollView>
+                <View style={styles.fieldsContainer}>
+                    <Text style={styles.titleText}>Plan Name</Text>
                     <TextInput 
-                        style={[styles.input, {marginBottom: 0, width: '90%'}]} 
-                        placeholder="Price"
-                        keyboardType="numeric"
-                        value={price}
-                        onChangeText={setPrice}
+                        style={styles.input} 
+                        placeholder="Plan name"
+                        value={name}
+                        onChangeText={setName}
                     />
-                    <Text style={styles.currencySymbol}>€</Text>
+
+                    <Text style={styles.titleText}>Price</Text>
+                    <View style={styles.priceWrapper}>
+                        <TextInput 
+                            style={[styles.input, {marginBottom: 0, width: '90%'}]} 
+                            placeholder="Price"
+                            keyboardType="numeric"
+                            value={price}
+                            onChangeText={setPrice}
+                        />
+                        <Text style={styles.currencySymbol}>€</Text>
+                    </View>
+
+                    <Text style={styles.titleText}>Location</Text>
+                    <TextInput
+                        style={styles.input} 
+                        placeholder="Location"
+                        value={location}
+                        onChangeText={setLocation}
+                    />
+
+                    <Text style={styles.titleText}>Indoor/Outdoor</Text>
+                    <Dropdown
+                        style={styles.dropdown}
+                        selectedTextStyle={styles.dropdownText}
+                        itemTextStyle={styles.dropdownText}
+                        data={in_out_data}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        value={in_out_value}
+                        onChange={item => {
+                            setInOutValue(item.value);
+                        }}
+                    />
+
+                    <Text style={styles.titleText}>Involves Eating</Text>
+                    <Dropdown
+                        style={styles.dropdown}
+                        selectedTextStyle={styles.dropdownText}
+                        itemTextStyle={styles.dropdownText}
+                        data={eating_data}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        value={eating_value}
+                        onChange={item => {
+                            setEatingValue(item.value);
+                        }}
+                    />
+                    
+                    <Text style={styles.titleText}>Completed</Text>
+                    <Dropdown
+                        style={styles.dropdown}
+                        selectedTextStyle={styles.dropdownText}
+                        itemTextStyle={styles.dropdownText}
+                        data={status_data}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        value={status_value}
+                        onChange={item => {
+                            setStatusValue(item.value);
+                        }}
+                    />
                 </View>
-
-                <Text style={styles.titleText}>Location</Text>
-                <TextInput
-                    style={styles.input} 
-                    placeholder="Location"
-                    value={location}
-                    onChangeText={setLocation}
-                />
-
-                <Text style={styles.titleText}>Indoor/Outdoor</Text>
-                <Dropdown
-                    style={styles.dropdown}
-                    selectedTextStyle={styles.dropdownText}
-                    itemTextStyle={styles.dropdownText}
-                    data={in_out_data}
-                    maxHeight={300}
-                    labelField="label"
-                    valueField="value"
-                    value={in_out_value}
-                    onChange={item => {
-                        setInOutValue(item.value);
-                    }}
-                />
-
-                <Text style={styles.titleText}>Involves Eating</Text>
-                <Dropdown
-                    style={styles.dropdown}
-                    selectedTextStyle={styles.dropdownText}
-                    itemTextStyle={styles.dropdownText}
-                    data={eating_data}
-                    maxHeight={300}
-                    labelField="label"
-                    valueField="value"
-                    value={eating_value}
-                    onChange={item => {
-                        setEatingValue(item.value);
-                    }}
-                />
-                
-                <Text style={styles.titleText}>Completed</Text>
-                <Dropdown
-                    style={styles.dropdown}
-                    selectedTextStyle={styles.dropdownText}
-                    itemTextStyle={styles.dropdownText}
-                    data={status_data}
-                    maxHeight={300}
-                    labelField="label"
-                    valueField="value"
-                    value={status_value}
-                    onChange={item => {
-                        setStatusValue(item.value);
-                    }}
-                />
-            </View>
+            </ScrollView>
             { /* Save button */}
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity style={styles.saveButton} onPress={() => savePlan()}>
@@ -187,10 +191,10 @@ const styles = StyleSheet.create({
     },
     headerWrapper: {
         flexDirection: 'row',
-        justifyContent:'space-between',
         alignItems: 'center',
         paddingHorizontal: 20,
         paddingTop: 50,
+        paddingBottom: 10,
     },
     headerLeft: {
         borderColor: colors.black,
@@ -254,12 +258,13 @@ const styles = StyleSheet.create({
     },
     saveButton: {
         width: 120,
-        height: 70,
+        height: 60,
         backgroundColor: colors.textLight,
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: colors.black,
         borderWidth: 2,
+        marginBottom: 20,
     },
 });
