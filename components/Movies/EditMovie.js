@@ -56,7 +56,6 @@ export default EditMovie = ({ route, navigation }) => {
 
     item_platform = item_platform
         .replace("Prime", "Amazon Prime")
-        .replace("Disneyplus", "Disney+")
         .replace("Max", "HBO Max");
 
     //convert string with ; separator into an array
@@ -139,14 +138,13 @@ export default EditMovie = ({ route, navigation }) => {
 
             platforms = platforms
                 .replace("Amazon Prime", "Prime")
-                .replace("Disney+", "Disneyplus")
                 .replace("HBO Max", "Max");
 
             // inserting movie into the database
             //console.log(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             await db.runAsync(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
 
-            Alert.alert(`Movie '${title}' successfully added!`, 'Refresh the page to view the changes');
+            Alert.alert(`Movie '${title}' successfully modified!`, 'Refresh the page to view the changes');
             navigation.goBack();
         }
     }

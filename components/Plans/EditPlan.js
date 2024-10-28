@@ -41,7 +41,7 @@ export default EditPlan = ({ navigation, route }) => {
     const curr_status = status_data.find(item => item.label === item_done).value;
 
     const [name, setName] = useState(item_plan);
-    const [price, setPrice] = useState(item_price.replace('Free', '0').replace('€', ''));
+    const [price, setPrice] = useState(item_price);
     const [location, setLocation] = useState(item_location);
     const [in_out_value, setInOutValue] = useState(curr_in_out);
     const [eating_value, setEatingValue] = useState(curr_eating);
@@ -67,20 +67,16 @@ export default EditPlan = ({ navigation, route }) => {
         const save = checkForm();
         if (save) {
             // handling price format
-            let precio = '';
             let lugar = '';
-            if (price === '0') {
-                precio = 'Free';
-            } else {
-                let float_price = parseFloat(price.replace(',', '.'));
-                precio = float_price % 1 === 0 ? float_price.toFixed(0).toString() + '€' : float_price.toFixed(2).toString() + '€';
-            }
+            let precio = parseFloat(price.replace(',', '.'));
+            precio = precio % 1 === 0 ? precio.toFixed(0) : precio.toFixed(2);
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
             // updating movie in the database
-            //console.log(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = '${precio}', eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
-            await db.runAsync(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = '${precio}', eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
-            Alert.alert(`Plan '${name}' successfully added!`, 'Refresh the page to view the changes');
+            //console.log(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            await db.runAsync(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            
+            Alert.alert(`Plan '${name}' successfully modified!`, 'Refresh the page to view the changes');
             navigation.goBack();
         }
     }
@@ -114,7 +110,7 @@ export default EditPlan = ({ navigation, route }) => {
                             style={[styles.input, {marginBottom: 0, width: '90%'}]} 
                             placeholder="Price"
                             keyboardType="numeric"
-                            value={price}
+                            value={price.toString()}
                             onChangeText={setPrice}
                         />
                         <Text style={styles.currencySymbol}>€</Text>

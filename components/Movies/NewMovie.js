@@ -100,7 +100,6 @@ export default NewMovie = ({ navigation }) => {
 
             platforms = platforms
                 .replace("Amazon Prime", "Prime")
-                .replace("Disney+", "Disneyplus")
                 .replace("HBO Max", "Max");
 
             // inserting movie into the database

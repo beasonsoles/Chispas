@@ -10,7 +10,10 @@ import colors from '../../assets/colors/colors.js';
 
 export default Movies = ({ navigation }) => {
     let [movieSearch, setMovieSearch] = useState();
+    let [matchedMovies, setMatchedMovies] = useState([]);
+    let [filteredMovies, setFilteredMovies] = useState([]);
     let [moviesData, setMoviesData] = useState([]);
+    let [selectedPlatforms, setSelectedPlatforms] = useState([]);
     let [modalVisible, setModalVisible] = useState(false);
     const db = useSQLiteContext();
 
@@ -48,14 +51,12 @@ export default Movies = ({ navigation }) => {
     const [hours, setHours] = useState('');
     const [minutes, setMinutes] = useState('');
     const [episodes, setEpisodes] = useState('');
-
     const platformLogos = [
         { name: 'Netflix', logo: require('../../assets/images/netflix.png') },
-        { name: 'Disneyplus', logo: require('../../assets/images/disneyplus.jpeg') },
+        { name: 'Disney+', logo: require('../../assets/images/disneyplus.jpeg') },
         { name: 'Prime', logo: require('../../assets/images/prime.png') },
         { name: 'Max', logo: require('../../assets/images/hbo.jpg') },
     ];    
-    const [selectedPlatforms, setSelectedPlatforms] = useState([]);
 
     const handlePlatformSelect = (platformName) => {
         setSelectedPlatforms((prev) => {
@@ -100,12 +101,78 @@ export default Movies = ({ navigation }) => {
         );
     };
 
-    const filter = () => {
-        let type = type_value;
-        if (genre_value.length > 0 && genre_value[0] !== "1") {
-            genre_value.map(item => console.log(item));
+    const parseDuration = (type, duration) => {
+        total = 0;
+        if (duration === "TBA") return total;
+        if (type === '2') { // series
+            return parseInt(duration.replace(' ep', ''));
+        } else { // movie or saga
+            let hours = duration.match(/(\d+)h/);
+            let minutes = duration.match(/(\d+)m/);
+            if (hours) total += parseInt(hours[1]) * 60;
+            if (minutes) total += parseInt(minutes[1]);
+            return total;
         }
-        return null;
+    };
+
+    const searchMovieTitle = () => {
+        if (movieSearch.length > 0) {
+            const moviesList = moviesData.filter(movie => movie.title.toLowerCase().includes(movieSearch.toLowerCase()));
+            if (moviesList.length > 0) {
+                setMatchedMovies(moviesList);
+            } else {
+                Alert.alert('Movie not found');
+            }
+        }
+    };
+
+    const filter = () => {
+        // extract the type
+        let type = type_data.find(type => type.value === type_value).label;
+
+        // extract the genre
+        let genres = [];
+        if (genre_value.length > 0) {
+            if (!genre_value.includes('1')) { // 'Any' is not selected
+                genre_value.map(selectedGenre => 
+                    genres.push(genre_data.find(genre => genre.value === selectedGenre).label)
+                );
+            } else { // 'Any is selected'
+                genres = ['Drama', 'Comedy', 'Thriller', 'Sci-Fi', 'Action', 'Fantasy', 'Animation', 'Documentary', 'Horror', 'Biography', 'Musical', 'Adventure'];
+            }
+        }
+
+        // extract max duration
+        let max_duration = 0, max_hours = 0, max_minutes = 0;
+        if (type_value === '2') { // series
+            if (episodes.length > 0 ) max_duration = episodes;
+        } else { // movie or saga
+            if (hours.length > 0) max_hours = parseInt(hours);
+            if (minutes.length > 0) max_minutes = parseInt(minutes);
+            max_duration = max_hours * 60 + max_minutes;
+        }
+        if (max_duration === 0) max_duration = 999;
+
+        // extract platforms
+        let platforms = selectedPlatforms;
+        if (platforms.length === 0) platforms = ["Netflix", "Prime", "Max", "Disney+"];
+
+        // obtain the filtered movies
+        const filterResults = moviesData.filter(movie => 
+            movie.type === type && 
+            genres.includes(movie.genre) && 
+            parseDuration(type_value, movie.duration) <= max_duration && 
+            movie.platform.split('; ').some(platform => platforms.includes(platform))
+            && movie.status === 'Not watched'
+        );
+        setFilteredMovies(filterResults);
+        // reset values
+        setHours('');
+        setMinutes('');
+        setEpisodes('');
+        setSelectedPlatforms([]);
+        // close popup
+        setModalVisible(false);
     }
 
     const renderMovie = ({ item }) => {
@@ -173,14 +240,29 @@ export default Movies = ({ navigation }) => {
                 placeholder='Search for a movie'
                 value={movieSearch}
                 onChangeText={text => setMovieSearch(text)}
+                onSubmitEditing={searchMovieTitle}
+                onClear={() => setMatchedMovies([])}
             />
             { /* Filter button */}
-            <TouchableOpacity style={styles.filterWrapper} onPress={() => setModalVisible(true)}>
-                <Feather name="filter" size={25} color={colors.textDark}/>
-                <Text style={styles.filterText}>Filter</Text>
-            </TouchableOpacity>
+            { filteredMovies.length === 0 ? (
+                <TouchableOpacity style={styles.filterWrapper} onPress={() => setModalVisible(true)}>
+                    <Feather name="filter" size={25} color={colors.textDark}/>
+                    <Text style={styles.filterText}>Filter</Text>
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={styles.filterWrapper} onPress={() => setFilteredMovies([])}>
+                    <Feather name="x" size={25} color={colors.textDark}/>
+                    <Text style={styles.filterText}>Clear</Text>
+                </TouchableOpacity>
+            )}
             <View style={styles.filterResults}>
-                <Text style={styles.filterText}>{moviesData.length} results</Text>
+                { matchedMovies.length > 0 ? (
+                    <Text style={styles.filterText}>{matchedMovies.length} {matchedMovies.length === 1 ? 'result' : 'results'} </Text>
+                ) : filteredMovies.length > 0 ? (
+                    <Text style={styles.filterText}>{filteredMovies.length} {filteredMovies.length === 1 ? 'result' : 'results'} </Text>
+                ) : (
+                    <Text style={styles.filterText}>{moviesData.length} results</Text>
+                )}
             </View>
             { /* Pop-up */}
             <View style={styles.modalWrapper}>
@@ -288,7 +370,7 @@ export default Movies = ({ navigation }) => {
                             )
                         })}
                     </View>
-                    { /* Save button */}
+                    { /* Filter button */}
                     <View style={styles.buttonWrapper}>
                         <TouchableOpacity style={styles.filterButton} onPress={() => filter()}>
                             <Text style={[styles.titleText, {fontFamily: 'Montserrat-SemiBold'}]}>Filter</Text>
@@ -299,7 +381,11 @@ export default Movies = ({ navigation }) => {
             </View> 
             { /* Movies List */ }
             <FlatList
-                data={moviesData}
+                data={
+                    matchedMovies.length > 0 ? matchedMovies 
+                        : filteredMovies.length > 0 ? filteredMovies 
+                        : moviesData
+                }
                 renderItem={renderMovie}
                 keyExtractor={(item) => item.id.toString()}
             />

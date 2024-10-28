@@ -11,8 +11,8 @@ import { Asset } from 'expo-asset';
 import Home from './components/Home';
 import Movies from './components/Movies/Movies';
 import Plans from './components/Plans/Plans';
-import MovieDetails from './components/Movies/MovieDetails';
-import PlanDetails from './components/Plans/PlanDetails';
+import SearchMovies from './components/Movies/SearchMovies';
+import SearchPlans from './components/Plans/SearchPlans';
 import NewMovie from './components/Movies/NewMovie';
 import NewPlan from './components/Plans/NewPlan';
 import EditMovie from './components/Movies/EditMovie';
@@ -78,8 +78,8 @@ export default function App() {
             <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
             <Stack.Screen name="Movies" component={Movies} options={{headerShown: false}}/>
             <Stack.Screen name="Plans" component={Plans} options={{headerShown: false}}/>
-            <Stack.Screen name="MovieDetails" component={MovieDetails} options={{headerShown: false}}/>
-            <Stack.Screen name="PlanDetails" component={PlanDetails} options={{headerShown: false}}/>
+            <Stack.Screen name="SearchMovies" component={SearchMovies} options={{headerShown: false}}/>
+            <Stack.Screen name="SearchPlans" component={SearchPlans} options={{headerShown: false}}/>
             <Stack.Screen name="NewMovie" component={NewMovie} options={{headerShown: false}}/>
             <Stack.Screen name="NewPlan" component={NewPlan} options={{headerShown: false}}/>
             <Stack.Screen name="EditMovie" component={EditMovie} options={{headerShown: false}}/>

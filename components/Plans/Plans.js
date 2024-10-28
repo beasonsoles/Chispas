@@ -12,6 +12,7 @@ import colors from '../../assets/colors/colors.js';
 
 export default Plans = ({ navigation }) => {
     let [planSearch, setPlanSearch] = useState();
+    let [matchedPlans, setMatchedPlans] = useState([]);
     let [plansData, setPlansData] = useState([]);
     let [modalVisible, setModalVisible] = useState(false);
     const db = useSQLiteContext();
@@ -75,6 +76,17 @@ export default Plans = ({ navigation }) => {
         );
     };
 
+    const searchPlanName = () => {
+        if (planSearch.length > 0) {
+            const plansList = plansData.filter(plan => plan.plan.toLowerCase().includes(planSearch.toLowerCase()));
+            if (plansList.length > 0) {
+                setMatchedPlans(plansList);
+            } else {
+                Alert.alert('Plan not found');
+            }
+        }
+    };
+
     const filter = () => {
         console.log(price.toFixed(2));
     };
@@ -87,7 +99,10 @@ export default Plans = ({ navigation }) => {
                 <View>
                     <View style={styles.planCard}>
                         <Text style={styles.planTitle}>{item.plan}</Text>
-                        <Text style={styles.planPrice}>{item.price}</Text>
+                        {item.price === 0 ? (
+                            <Text style={styles.planPrice}>Free</Text>
+                            ) : (<Text style={styles.planPrice}>{item.price}€</Text>)
+                        }
                         <View style={styles.planInfo}>
                             <View style={styles.locationWrapper}>
                                 <Feather name="map-pin" size={22} color={colors.textDark}/>
@@ -145,6 +160,8 @@ export default Plans = ({ navigation }) => {
                 placeholder='Search for a plan'
                 value={planSearch}
                 onChangeText={text => setPlanSearch(text)}
+                onSubmitEditing={searchPlanName}
+                onClear={() => setMatchedPlans([])}
             />
             { /* Filter button */}
             <TouchableOpacity style={styles.filterWrapper} onPress={() => setModalVisible(true)}>
@@ -152,7 +169,11 @@ export default Plans = ({ navigation }) => {
                 <Text style={styles.filterText}>Filter</Text>
             </TouchableOpacity>
             <View style={styles.filterResults}>
-                <Text style={styles.filterText}>{plansData.length} results</Text>
+                { matchedPlans.length === 0 ? (
+                    <Text style={styles.filterText}>{plansData.length} results</Text>
+                ) : (
+                    <Text style={styles.filterText}>{matchedPlans.length} {matchedPlans.length === 1 ? 'result' : 'results'} </Text>
+                )}
             </View>
             { /* Pop-up */}
             <View style={styles.modalWrapper}>
@@ -231,7 +252,7 @@ export default Plans = ({ navigation }) => {
                         }}
                     />
 
-                    { /* Save button */}
+                    { /* Filter button */}
                     <View style={styles.buttonWrapper}>
                         <TouchableOpacity style={styles.filterButton} onPress={() => filter()}>
                             <Text style={[styles.titleText, {fontFamily: 'Montserrat-SemiBold'}]}>Filter</Text>
@@ -241,11 +262,19 @@ export default Plans = ({ navigation }) => {
                 </Modal>
             </View> 
             { /* Plans List */ }
-            <FlatList
-                data={plansData}
-                renderItem={renderPlan}
-                keyExtractor={(item) => item.id.toString()}
-            />
+            {matchedPlans.length === 0 ? (
+                <FlatList
+                    data={plansData}
+                    renderItem={renderPlan}
+                    keyExtractor={(item) => item.id.toString()}
+                />
+            ) : (
+                <FlatList
+                    data={matchedPlans}
+                    renderItem={renderPlan}
+                    keyExtractor={(item) => item.id.toString()}
+                />
+            )}
             { /* Add Plan Button */ }
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('NewPlan')}>

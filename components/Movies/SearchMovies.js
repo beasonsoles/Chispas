@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ScrollView } from 'react-native';
 
-export default PlanDetails = ({ route, navigation }) => {
-
-    const { plan } = route.params;
+export default SearchMovies = ({ route, navigation }) => {
+    const movieList = route.params;
+    console.log(movieList);
 
     return (
         <View style={styles.container}>
-            <Text>Plan Card {plan.plan}</Text>
+            <Text>Movie Card </Text>
         </View>
     );
 };

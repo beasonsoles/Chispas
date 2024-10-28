@@ -52,19 +52,14 @@ export default NewPlan = ({ navigation }) => {
         const save = checkForm();
         if (save) {
             // handling price format
-            let precio = '';
             let lugar = '';
-            if (price === '0') {
-                precio = 'Free';
-            } else {
-                let float_price = parseFloat(price.replace(',', '.'));
-                precio = float_price % 1 === 0 ? float_price.toFixed(0).toString() + '€' : float_price.toFixed(2).toString() + '€';
-            }
+            let precio = parseFloat(price.replace(',', '.'));
+            precio = precio % 1 === 0 ? precio.toFixed(0) : precio.toFixed(2);
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
             // inserting movie into the database
-            //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
-            await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', '${precio}', '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+            //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+            await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
 
             Alert.alert(`Plan '${name}' successfully added!`, 'Refresh the page to view the changes');
             navigation.goBack();
