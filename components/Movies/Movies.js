@@ -46,6 +46,12 @@ export default Movies = ({ navigation }) => {
         { label: 'Musical', value: '12'},
         { label: 'Adventure', value: '13'},
     ];
+
+    const status_data = [
+        { label: 'Not watched', value: '1'},
+        { label: 'Watched', value: '2'},
+    ];
+    
     const [type_value, setTypeValue] = useState(type_data[0].value);
     const [genre_value, setGenreValue] = useState([genre_data[0].value]);
     const [hours, setHours] = useState('');
@@ -57,6 +63,7 @@ export default Movies = ({ navigation }) => {
         { name: 'Prime', logo: require('../../assets/images/prime.png') },
         { name: 'Max', logo: require('../../assets/images/hbo.jpg') },
     ];    
+    const [status_value, setStatusValue] = useState(status_data[0].value);
 
     const handlePlatformSelect = (platformName) => {
         setSelectedPlatforms((prev) => {
@@ -157,13 +164,16 @@ export default Movies = ({ navigation }) => {
         let platforms = selectedPlatforms;
         if (platforms.length === 0) platforms = ["Netflix", "Prime", "Max", "Disney+"];
 
+        // extract status
+        let status = status_data.find(status => status.value === status_value).label;
+        
         // obtain the filtered movies
         const filterResults = moviesData.filter(movie => 
             movie.type === type && 
             genres.includes(movie.genre) && 
             parseDuration(type_value, movie.duration) <= max_duration && 
-            movie.platform.split('; ').some(platform => platforms.includes(platform))
-            && movie.status === 'Not watched'
+            movie.platform.split('; ').some(platform => platforms.includes(platform)) && 
+            movie.status === status
         );
         setFilteredMovies(filterResults);
         // reset values
@@ -370,6 +380,20 @@ export default Movies = ({ navigation }) => {
                             )
                         })}
                     </View>
+                    <Text style={styles.titleText}>Status</Text>
+                    <Dropdown
+                        style={styles.dropdown}
+                        selectedTextStyle={styles.dropdownText}
+                        itemTextStyle={styles.dropdownText}
+                        data={status_data}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        value={status_value}
+                        onChange={item => {
+                            setStatusValue(item.value);
+                        }}
+                    />
                     { /* Filter button */}
                     <View style={styles.buttonWrapper}>
                         <TouchableOpacity style={styles.filterButton} onPress={() => filter()}>

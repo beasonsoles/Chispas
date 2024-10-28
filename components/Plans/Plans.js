@@ -13,6 +13,7 @@ import colors from '../../assets/colors/colors.js';
 export default Plans = ({ navigation }) => {
     let [planSearch, setPlanSearch] = useState();
     let [matchedPlans, setMatchedPlans] = useState([]);
+    let [filteredPlans, setFilteredPlans] = useState([]);
     let [plansData, setPlansData] = useState([]);
     let [modalVisible, setModalVisible] = useState(false);
     const db = useSQLiteContext();
@@ -38,10 +39,16 @@ export default Plans = ({ navigation }) => {
         { label: 'Any', value: '3'},
     ];
 
+    const status_data = [
+        { label: 'Yes', value: '1'},
+        { label: 'No', value: '2'},
+    ];
+
     const [price, setPrice] = useState(10);
-    const [location, setLocation] = useState('');
+    const [location, setLocation] = useState('Madrid');
     const [in_out_value, setInOutValue] = useState(in_out_data[2].value);
     const [eating_value, setEatingValue] = useState(eating_data[2].value);
+    const [status_value, setStatusValue] = useState(status_data[1].value);
 
     const deleteAlert = (id) => {
         Alert.alert(
@@ -88,7 +95,38 @@ export default Plans = ({ navigation }) => {
     };
 
     const filter = () => {
-        console.log(price.toFixed(2));
+        // extract max price
+        let max_price = price.toFixed(2);
+
+        // extract indoor_outdoor
+        let in_out = [in_out_data.find(in_out => in_out.value === in_out_value).label];
+        if (in_out.includes('Any')) in_out = ["Indoor", "Outdoor"];
+          
+        // extract involves eating
+        let eating = [eating_data.find(eating => eating.value === eating_value).label];
+        if (eating.includes('Any')) eating = ["Yes", "No"];
+        
+        // extract status
+        let status = status_data.find(status => status.value === status_value).label;
+        
+        // obtain the filtered plans
+        const filterResults = plansData.filter(plan => 
+            plan.price < max_price && 
+            plan.location.split('; ').includes(location) &&
+            in_out.includes(plan.indoor_outdoor) &&
+            eating.includes(plan.eating) && 
+            plan.done === status
+        );
+        setFilteredPlans(filterResults);
+        console.log(filterResults);
+        // reset values
+        setPrice(10);
+        setLocation('Madrid');
+        setInOutValue(in_out_data[2].value);
+        setEatingValue(eating_data[2].value);
+        setStatusValue(status_data[1].value);
+        //close popup
+        setModalVisible(false);
     };
 
     const renderPlan = ({ item }) => {
@@ -164,15 +202,24 @@ export default Plans = ({ navigation }) => {
                 onClear={() => setMatchedPlans([])}
             />
             { /* Filter button */}
-            <TouchableOpacity style={styles.filterWrapper} onPress={() => setModalVisible(true)}>
-                <Feather name="filter" size={25} color={colors.textDark}/>
-                <Text style={styles.filterText}>Filter</Text>
-            </TouchableOpacity>
+            { filteredPlans.length === 0 ? (
+                <TouchableOpacity style={styles.filterWrapper} onPress={() => setModalVisible(true)}>
+                    <Feather name="filter" size={25} color={colors.textDark}/>
+                    <Text style={styles.filterText}>Filter</Text>
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={styles.filterWrapper} onPress={() => setFilteredPlans([])}>
+                    <Feather name="x" size={25} color={colors.textDark}/>
+                    <Text style={styles.filterText}>Clear</Text>
+                </TouchableOpacity>
+            )}
             <View style={styles.filterResults}>
-                { matchedPlans.length === 0 ? (
-                    <Text style={styles.filterText}>{plansData.length} results</Text>
-                ) : (
+                { matchedPlans.length > 0 ? (
                     <Text style={styles.filterText}>{matchedPlans.length} {matchedPlans.length === 1 ? 'result' : 'results'} </Text>
+                ) : filteredPlans.length > 0 ? (
+                    <Text style={styles.filterText}>{filteredPlans.length} {filteredPlans.length === 1 ? 'result' : 'results'} </Text>
+                ) : (
+                    <Text style={styles.filterText}>{plansData.length} results</Text>
                 )}
             </View>
             { /* Pop-up */}
@@ -252,6 +299,21 @@ export default Plans = ({ navigation }) => {
                         }}
                     />
 
+                    <Text style={styles.titleText}>Completed</Text>
+                    <Dropdown
+                        style={styles.dropdown}
+                        selectedTextStyle={styles.dropdownText}
+                        itemTextStyle={styles.dropdownText}
+                        data={status_data}
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        value={status_value}
+                        onChange={item => {
+                            setStatusValue(item.value);
+                        }}
+                    />
+
                     { /* Filter button */}
                     <View style={styles.buttonWrapper}>
                         <TouchableOpacity style={styles.filterButton} onPress={() => filter()}>
@@ -264,7 +326,11 @@ export default Plans = ({ navigation }) => {
             { /* Plans List */ }
             {matchedPlans.length === 0 ? (
                 <FlatList
-                    data={plansData}
+                    data={
+                        matchedPlans.length > 0 ? matchedPlans 
+                        : filteredPlans.length > 0 ? filteredPlans 
+                        : plansData
+                    }
                     renderItem={renderPlan}
                     keyExtractor={(item) => item.id.toString()}
                 />
