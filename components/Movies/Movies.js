@@ -136,7 +136,6 @@ export default Movies = ({ navigation }) => {
 
     const parseDuration = (type, duration) => {
         total = 0;
-        if (duration === "TBA") return total;
         if (type === '2') { // series
             return parseInt(duration.replace(' ep', ''));
         } else { // movie or saga
