@@ -4,10 +4,10 @@
     "slug": "Chispas",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/chispas_icon.jpg",
+    "icon": "./assets/chispas_icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/chispas.jpg",
+      "image": "./assets/chispas.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,12 +16,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/chispas.jpg",
+        "foregroundImage": "./assets/chispas_icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/chispas_icon.jpg"
+      "favicon": "./assets/chispas_icon.png"
     },
     "plugins": [
       "expo-font"
