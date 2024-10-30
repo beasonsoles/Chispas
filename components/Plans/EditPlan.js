@@ -52,7 +52,7 @@ export default EditPlan = ({ navigation, route }) => {
             Alert.alert("The 'name' field cannot be empty");
             return false;
         }
-        if (price.trim().length === 0) {
+        if (price.toString().trim().length === 0) {
             Alert.alert("The 'price' field cannot be empty");
             return false;
         }
@@ -68,16 +68,16 @@ export default EditPlan = ({ navigation, route }) => {
         if (save) {
             // handling price format
             let lugar = '';
-            let precio = parseFloat(price.replace(',', '.'));
-            precio = precio % 1 === 0 ? precio.toFixed(0) : precio.toFixed(2);
+            let precio = parseFloat(price.toString().replace(',', '.'));
+            precio = precio % 1 === 0 ? parseFloat(precio.toFixed(0)) : parseFloat(precio.toFixed(2));
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
             // updating movie in the database
             //console.log(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             await db.runAsync(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             
-            Alert.alert(`Plan '${name}' successfully modified!`, 'Refresh the page to view the changes');
-            navigation.goBack();
+            Alert.alert(`Plan '${name}' successfully modified!`);
+            navigation.navigate('Plans');
         }
     }
 

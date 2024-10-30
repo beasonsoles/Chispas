@@ -57,8 +57,20 @@ export default NewMovie = ({ navigation }) => {
             Alert.alert("The 'title' field cannot be empty");
             return false;
         }
-        if (hours.trim().length === 0 && minutes.trim().length === 0 && episodes.trim().length === 0) {
+        if ((type_value === '2' && episodes.trim().length === 0) || (type_value !== '2' && hours.trim().length === 0 && minutes.trim().length === 0)) {
             Alert.alert("The 'duration' field cannot be empty");
+            return false;
+        }
+        if (type_value === '2' && episodes.length > 0 && (/^\d+$/.test(episodes.trim()) === false)) {
+            Alert.alert("The 'episodes' field must be an integer");
+            return false;
+        }
+        if (type_value !== '2' && hours.length > 0 && (/^\d+$/.test(hours.trim()) === false)) {
+            Alert.alert("The 'hours' field must be an integer");
+            return false;
+        }
+        if (type_value !== '2' && minutes.length > 0 && (/^(?:[0-5]?[0-9])$/.test(minutes.trim()) === false)) {
+            Alert.alert("The 'minutes' field must be an integer between 0 and 59");
             return false;
         }
         if (genre_value === null) {
@@ -74,18 +86,22 @@ export default NewMovie = ({ navigation }) => {
             let duration = '';
             let platforms = '';
             // handling duration format
-            if (episodes.length > 0) {
+            if (type_value === '2') {
                 duration = `${episodes} ep`;
             } else {
                 if (hours.length > 0 && minutes.length > 0) {
                     duration = `${hours}h ${minutes}m`;
                 }
-                else if (hours.length === 0 && minutes.length > 0) {
+                else if (hours.length === 0 && minutes.length > 0 && minutes !== '0') {
                     duration = `${minutes}m`;
                 }
-                else if (hours.length > 0 && minutes.length === 0) {
+                else if (hours.length > 0 && minutes.length === 0 && hours !== '0') {
                     duration = `${hours}h`;
                 }
+            }
+            duration = duration.replace('0h ', '');
+            if (hours !== '0') {
+                duration = duration.replace('0m', '');
             }
 
             // handling platform format
@@ -106,8 +122,8 @@ export default NewMovie = ({ navigation }) => {
             //console.log(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
             await db.runAsync(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
 
-            Alert.alert(`Movie '${title}' successfully added!`, 'Refresh the page to view the changes');
-            navigation.goBack();
+            Alert.alert(`Movie '${title}' successfully added!`);
+            navigation.navigate('Movies');
         }
     }
 

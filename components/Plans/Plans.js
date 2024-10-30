@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert, FlatList, Modal, TextInput } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { useSQLiteContext } from 'expo-sqlite/next';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,17 +11,25 @@ import Slider from '@react-native-community/slider';
 
 import colors from '../../assets/colors/colors.js';
 
-export default Plans = ({ navigation }) => {
+export default Plans = ({ route, navigation }) => {
     let [planSearch, setPlanSearch] = useState();
     let [matchedPlans, setMatchedPlans] = useState([]);
     let [filteredPlans, setFilteredPlans] = useState([]);
     let [plansData, setPlansData] = useState([]);
     let [modalVisible, setModalVisible] = useState(false);
+    let [refreshData, setRefreshData] = useState(false);
     const db = useSQLiteContext();
+
+    // check if data needs to be refreshed
+    useFocusEffect(
+        useCallback(() => {
+            getPlans();
+        }, [])
+    );
 
     useEffect(() => {
         getPlans();
-    }, []);
+    }, [refreshData]);
 
     async function getPlans() {
         const result = await db.getAllAsync(`SELECT * FROM Plans ORDER BY plan ASC;`);
@@ -44,7 +53,7 @@ export default Plans = ({ navigation }) => {
         { label: 'No', value: '2'},
     ];
 
-    const [price, setPrice] = useState(10);
+    const [price, setPrice] = useState(10.0);
     const [location, setLocation] = useState('Madrid');
     const [in_out_value, setInOutValue] = useState(in_out_data[2].value);
     const [eating_value, setEatingValue] = useState(eating_data[2].value);
@@ -64,10 +73,19 @@ export default Plans = ({ navigation }) => {
                 text: 'YES',
                 onPress: () => {
                     db.runAsync(`DELETE FROM Plans WHERE id = ${id};`);
-                    Alert.alert('Plan deleted successfully!', 'Refresh the page to view the changes');
+                    setRefreshData(prev => !prev);
+                    Alert.alert('Plan deleted successfully!');
                 },
               },
             ],
+        );
+    };
+
+    const updatePlanStatus = (id, newStatus, setStateFunction) => {
+        setStateFunction((prevPlans) =>
+            prevPlans.map((plan) =>
+                plan.id === id ? { ...plan, done: newStatus } : plan
+            )
         );
     };
 
@@ -75,12 +93,20 @@ export default Plans = ({ navigation }) => {
         const newStatus = currentStatus === 'Yes' ? 'No' : 'Yes';
 
         await db.runAsync(`UPDATE Plans SET done = ? WHERE id = ?;`, [newStatus, id]);
+        setRefreshData(prev => !prev);
+        
+        // update all three arrays
+        if (plansData.length > 0) {
+            updatePlanStatus(id, newStatus, setPlansData);
+        }
 
-        setPlansData((prevPlans) =>
-            prevPlans.map((plan) =>
-                plan.id === id ? { ...plan, done: newStatus } : plan
-            )
-        );
+        if (filteredPlans.length > 0) {
+            updatePlanStatus(id, newStatus, setFilteredPlans);
+        }
+
+        if (matchedPlans.length > 0) {
+            updatePlanStatus(id, newStatus, setMatchedPlans);
+        }
     };
 
     const searchPlanName = () => {
@@ -111,14 +137,18 @@ export default Plans = ({ navigation }) => {
         
         // obtain the filtered plans
         const filterResults = plansData.filter(plan => 
-            plan.price < max_price && 
+            plan.price <= max_price && 
             plan.location.split('; ').includes(location) &&
             in_out.includes(plan.indoor_outdoor) &&
             eating.includes(plan.eating) && 
             plan.done === status
         );
-        setFilteredPlans(filterResults);
-        console.log(filterResults);
+
+        if (filterResults.length > 0) {
+            setFilteredPlans(filterResults);
+        } else {
+            Alert.alert('No plans match the selected criteria', 'Please try filtering by different criteria');
+        }
         // reset values
         setPrice(10);
         setLocation('Madrid');
@@ -324,23 +354,15 @@ export default Plans = ({ navigation }) => {
                 </Modal>
             </View> 
             { /* Plans List */ }
-            {matchedPlans.length === 0 ? (
-                <FlatList
-                    data={
-                        matchedPlans.length > 0 ? matchedPlans 
-                        : filteredPlans.length > 0 ? filteredPlans 
-                        : plansData
-                    }
-                    renderItem={renderPlan}
-                    keyExtractor={(item) => item.id.toString()}
-                />
-            ) : (
-                <FlatList
-                    data={matchedPlans}
-                    renderItem={renderPlan}
-                    keyExtractor={(item) => item.id.toString()}
-                />
-            )}
+            <FlatList
+                data={
+                    matchedPlans.length > 0 ? matchedPlans 
+                    : filteredPlans.length > 0 ? filteredPlans 
+                    : plansData
+                }
+                renderItem={renderPlan}
+                keyExtractor={(item) => item.id.toString()}
+            />
             { /* Add Plan Button */ }
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('NewPlan')}>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, Alert, FlatList, Modal, TextInput } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { useState, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { useSQLiteContext } from 'expo-sqlite/next';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
@@ -15,11 +16,19 @@ export default Movies = ({ navigation }) => {
     let [moviesData, setMoviesData] = useState([]);
     let [selectedPlatforms, setSelectedPlatforms] = useState([]);
     let [modalVisible, setModalVisible] = useState(false);
+    let [refreshData, setRefreshData] = useState(false);
     const db = useSQLiteContext();
+
+    // check if data needs to be refreshed
+    useFocusEffect(
+        useCallback(() => {
+            getMovies();
+        }, [])
+    );
 
     useEffect(() => {
         getMovies();
-    }, []);
+    }, [refreshData]);
 
     async function getMovies() {
         const result = await db.getAllAsync(`SELECT * FROM Movies ORDER BY title ASC;`);
@@ -54,9 +63,9 @@ export default Movies = ({ navigation }) => {
     
     const [type_value, setTypeValue] = useState(type_data[0].value);
     const [genre_value, setGenreValue] = useState([genre_data[0].value]);
-    const [hours, setHours] = useState('');
+    const [hours, setHours] = useState('2');
     const [minutes, setMinutes] = useState('');
-    const [episodes, setEpisodes] = useState('');
+    const [episodes, setEpisodes] = useState('32');
     const platformLogos = [
         { name: 'Netflix', logo: require('../../assets/images/netflix.png') },
         { name: 'Disney+', logo: require('../../assets/images/disneyplus.jpeg') },
@@ -89,10 +98,19 @@ export default Movies = ({ navigation }) => {
                 text: 'YES',
                 onPress: () => {
                     db.runAsync(`DELETE FROM Movies WHERE id = ${id};`);
-                    Alert.alert('Movie deleted successfully!', 'Refresh the page to view the changes');
+                    setRefreshData(prev => !prev);
+                    Alert.alert('Movie deleted successfully!');
                 },
               },
             ],
+        );
+    };
+
+    const updateMovieStatus = (id, newStatus, setStateFunction) => {
+        setStateFunction((prevMovies) =>
+            prevMovies.map((movie) =>
+                movie.id === id ? { ...movie, status: newStatus } : movie
+            )
         );
     };
 
@@ -100,12 +118,20 @@ export default Movies = ({ navigation }) => {
         const newStatus = currentStatus === 'Watched' ? 'Not watched' : 'Watched';
 
         await db.runAsync(`UPDATE Movies SET status = ? WHERE id = ?;`, [newStatus, id]);
+        setRefreshData(prev => !prev);
+        
+        // update all three arrays
+        if (moviesData.length > 0) {
+            updateMovieStatus(id, newStatus, setMoviesData);
+        }
 
-        setMoviesData((prevMovies) =>
-            prevMovies.map((movie) =>
-                movie.id === id ? { ...movie, status: newStatus } : movie
-            )
-        );
+        if (filteredMovies.length > 0) {
+            updateMovieStatus(id, newStatus, setFilteredMovies);
+        }
+
+        if (matchedMovies.length > 0) {
+            updateMovieStatus(id, newStatus, setMatchedMovies);
+        }
     };
 
     const parseDuration = (type, duration) => {
@@ -175,11 +201,15 @@ export default Movies = ({ navigation }) => {
             movie.platform.split('; ').some(platform => platforms.includes(platform)) && 
             movie.status === status
         );
-        setFilteredMovies(filterResults);
+        if (filterResults.length > 0) {
+            setFilteredMovies(filterResults);
+        } else {
+            Alert.alert('No movies match the selected criteria', 'Please try filtering by different criteria');
+        }
         // reset values
-        setHours('');
+        setHours('2');
         setMinutes('');
-        setEpisodes('');
+        setEpisodes('32');
         setSelectedPlatforms([]);
         // close popup
         setModalVisible(false);
@@ -407,8 +437,8 @@ export default Movies = ({ navigation }) => {
             <FlatList
                 data={
                     matchedMovies.length > 0 ? matchedMovies 
-                        : filteredMovies.length > 0 ? filteredMovies 
-                        : moviesData
+                    : filteredMovies.length > 0 ? filteredMovies 
+                    : moviesData
                 }
                 renderItem={renderMovie}
                 keyExtractor={(item) => item.id.toString()}

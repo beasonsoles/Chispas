@@ -61,8 +61,8 @@ export default NewPlan = ({ navigation }) => {
             //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
             await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
 
-            Alert.alert(`Plan '${name}' successfully added!`, 'Refresh the page to view the changes');
-            navigation.goBack();
+            Alert.alert(`Plan '${name}' successfully added!`);
+            navigation.navigate('Plans');
         }
     }
 

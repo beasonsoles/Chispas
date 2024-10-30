@@ -63,13 +63,19 @@ export default EditMovie = ({ route, navigation }) => {
 
     let curr_episodes = '';
     let curr_hours = '';
-    let curr_minutes = '0';
+    let curr_minutes = '';
     if (item_duration.includes("ep")) {
         curr_episodes = item_duration.split("ep")[0].trim();
     } else {
-        curr_hours = item_duration.split("h")[0].trim();
-        if (item_duration.split("h ")[1]) {
+        if (item_duration.includes("h") && item_duration.includes("m")) {
+            curr_hours = item_duration.split("h")[0].trim();
             curr_minutes = item_duration.split("h ")[1].split("m")[0].trim();
+        } else if (item_duration.includes("h") && !item_duration.includes("m")) {
+            curr_hours = item_duration.split("h")[0].trim();
+            curr_minutes = '0';
+        } else if (!item_duration.includes("h") && item_duration.includes("m")) {
+            curr_minutes = item_duration.split("m")[0].trim();
+            curr_hours = '0';
         }
     }
     const curr_type = type_data.find(item => item.label === item_type).value;
@@ -95,8 +101,20 @@ export default EditMovie = ({ route, navigation }) => {
             Alert.alert("The 'title' field cannot be empty");
             return false;
         }
-        if (hours.trim().length === 0 && minutes.trim().length === 0 && episodes.trim().length === 0) {
+        if ((type_value === '2' && episodes.trim().length === 0) || (type_value !== '2' && hours.trim().length === 0 && minutes.trim().length === 0)) {
             Alert.alert("The 'duration' field cannot be empty");
+            return false;
+        }
+        if (type_value === '2' && episodes.length > 0 && (/^\d+$/.test(episodes.trim()) === false)) {
+            Alert.alert("The 'episodes' field must be an integer");
+            return false;
+        }
+        if (type_value !== '2' && hours.length > 0 && (/^\d+$/.test(hours.trim()) === false)) {
+            Alert.alert("The 'hours' field must be an integer");
+            return false;
+        }
+        if (type_value !== '2' && minutes.length > 0 && (/^(?:[0-5]?[0-9])$/.test(minutes.trim()) === false)) {
+            Alert.alert("The 'minutes' field must be an integer between 0 and 59");
             return false;
         }
         if (genre_value === null) {
@@ -112,18 +130,22 @@ export default EditMovie = ({ route, navigation }) => {
             let duration = '';
             let platforms = '';
             // handling duration format
-            if (episodes.length > 0) {
+            if (type_value === '2') {
                 duration = `${episodes} ep`;
             } else {
                 if (hours.length > 0 && minutes.length > 0) {
                     duration = `${hours}h ${minutes}m`;
                 }
-                else if (hours.length === 0 && minutes.length > 0) {
+                else if (hours.length === 0 && minutes.length > 0 && minutes !== '0') {
                     duration = `${minutes}m`;
                 }
-                else if (hours.length > 0 && minutes.length === 0) {
+                else if (hours.length > 0 && minutes.length === 0 && hours !== '0') {
                     duration = `${hours}h`;
                 }
+            }
+            duration = duration.replace('0h ', '');
+            if (hours !== '0') {
+                duration = duration.replace('0m', '');
             }
 
             // handling platform format
@@ -144,8 +166,8 @@ export default EditMovie = ({ route, navigation }) => {
             //console.log(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             await db.runAsync(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
 
-            Alert.alert(`Movie '${title}' successfully modified!`, 'Refresh the page to view the changes');
-            navigation.goBack();
+            Alert.alert(`Movie '${title}' successfully modified!`);
+            navigation.navigate('Movies');
         }
     }
 
