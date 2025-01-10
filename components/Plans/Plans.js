@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Alert, FlatList
 import { SearchBar } from 'react-native-elements';
 import { useState, useEffect, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -32,7 +32,7 @@ export default Plans = ({ route, navigation }) => {
     }, [refreshData]);
 
     async function getPlans() {
-        const result = await db.getAllAsync(`SELECT * FROM Plans ORDER BY plan ASC;`);
+        const result = await db.getAllAsync(`SELECT * FROM plans ORDER BY plan ASC;`);
         setPlansData(result);
     }
 
@@ -72,7 +72,7 @@ export default Plans = ({ route, navigation }) => {
               {
                 text: 'YES',
                 onPress: () => {
-                    db.runAsync(`DELETE FROM Plans WHERE id = ${id};`);
+                    db.runAsync(`DELETE FROM plans WHERE id = ${id};`);
                     setRefreshData(prev => !prev);
                     Alert.alert('Plan deleted successfully!');
                 },
@@ -92,7 +92,7 @@ export default Plans = ({ route, navigation }) => {
     const toggleIcon = async (id, currentStatus) => {
         const newStatus = currentStatus === 'Yes' ? 'No' : 'Yes';
 
-        await db.runAsync(`UPDATE Plans SET done = ? WHERE id = ?;`, [newStatus, id]);
+        await db.runAsync(`UPDATE plans SET done = ? WHERE id = ?;`, [newStatus, id]);
         setRefreshData(prev => !prev);
         
         // update all three arrays

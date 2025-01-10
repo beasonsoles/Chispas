@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Image, Alert, F
 import { SearchBar } from 'react-native-elements';
 import { useState, useCallback, useEffect } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
 
@@ -31,7 +31,7 @@ export default Movies = ({ navigation }) => {
     }, [refreshData]);
 
     async function getMovies() {
-        const result = await db.getAllAsync(`SELECT * FROM Movies ORDER BY title ASC;`);
+        const result = await db.getAllAsync(`SELECT * FROM movies ORDER BY title ASC;`);
         setMoviesData(result);
     }
 
@@ -97,7 +97,7 @@ export default Movies = ({ navigation }) => {
               {
                 text: 'YES',
                 onPress: () => {
-                    db.runAsync(`DELETE FROM Movies WHERE id = ${id};`);
+                    db.runAsync(`DELETE FROM movies WHERE id = ${id};`);
                     setRefreshData(prev => !prev);
                     Alert.alert('Movie deleted successfully!');
                 },
@@ -117,7 +117,7 @@ export default Movies = ({ navigation }) => {
     const toggleIcon = async (id, currentStatus) => {
         const newStatus = currentStatus === 'Watched' ? 'Not watched' : 'Watched';
 
-        await db.runAsync(`UPDATE Movies SET status = ? WHERE id = ?;`, [newStatus, id]);
+        await db.runAsync(`UPDATE movies SET status = ? WHERE id = ?;`, [newStatus, id]);
         setRefreshData(prev => !prev);
         
         // update all three arrays

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView, ScrollView, Alert } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 
 import colors from '../../assets/colors/colors.js';
 
@@ -119,8 +119,8 @@ export default NewMovie = ({ navigation }) => {
                 .replace("HBO Max", "Max");
 
             // inserting movie into the database
-            //console.log(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
-            await db.runAsync(`INSERT INTO Movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
+            //console.log(`INSERT INTO movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
+            await db.runAsync(`INSERT INTO movies (title, type, duration, genre, platform, status) VALUES ('${title}', '${type_data[type_value-1].label}', '${duration}', '${genre_data[genre_value-1].label}', '${platforms}', '${status_data[status_value-1].label}');`);
 
             Alert.alert(`Movie '${title}' successfully added!`);
             navigation.navigate('Movies');

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView, ScrollView, Alert } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 
 import colors from '../../assets/colors/colors.js';
 
@@ -73,8 +73,8 @@ export default EditPlan = ({ navigation, route }) => {
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
             // updating movie in the database
-            //console.log(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
-            await db.runAsync(`UPDATE Plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            //console.log(`UPDATE plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            await db.runAsync(`UPDATE plans SET plan = '${name}', location = '${lugar.trim()}', indoor_outdoor = '${in_out_data[in_out_value-1].label}', price = ${precio}, eating = '${eating_data[eating_value-1].label}', done = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
             
             Alert.alert(`Plan '${name}' successfully modified!`);
             navigation.navigate('Plans');

@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "Chispas",
-    "slug": "Chispas",
+    "slug": "chispas",
+    "scheme": "http",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/chispas_icon.png",
@@ -18,13 +19,25 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/chispas_icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.beatrizsonsoles.chispas",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
-      "favicon": "./assets/chispas_icon.png"
+      "favicon": "./assets/chispas_icon.png",
+      "bundler": "metro"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "587c6e8f-92b0-44b9-aa33-541232f421b2"
+      }
+    },
+    "owner": "beatrizsonsoles"
   }
 }

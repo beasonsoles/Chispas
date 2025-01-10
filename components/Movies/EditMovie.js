@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView, ScrollView, Alert } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 
 import colors from '../../assets/colors/colors.js';
 
@@ -163,8 +163,8 @@ export default EditMovie = ({ route, navigation }) => {
                 .replace("HBO Max", "Max");
 
             // inserting movie into the database
-            //console.log(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
-            await db.runAsync(`UPDATE Movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            //console.log(`UPDATE movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
+            await db.runAsync(`UPDATE movies SET title = '${title}', type = '${type_data[type_value-1].label}', duration = '${duration}', genre = '${genre_data[genre_value-1].label}', platform = '${platforms}', status = '${status_data[status_value-1].label}' WHERE id = ${item_id};`);
 
             Alert.alert(`Movie '${title}' successfully modified!`);
             navigation.navigate('Movies');

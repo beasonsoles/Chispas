@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View, SafeAreaView, ScrollView, Alert } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
-import { useSQLiteContext } from 'expo-sqlite/next';
+import { useSQLiteContext } from 'expo-sqlite';
 
 import colors from '../../assets/colors/colors.js';
 
@@ -58,8 +58,11 @@ export default NewPlan = ({ navigation }) => {
             lugar = location.charAt(0).toUpperCase() + location.slice(1).toLowerCase()
 
             // inserting movie into the database
-            //console.log(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
-            await db.runAsync(`INSERT INTO Plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+            /*db.transaction((tx) => {
+                tx.executeSql('INSERT INTO plans (plan, location, indoor_outdoor, price, eating, done) VALUES (?,?,?,?,?,?)', [name, lugar.trim(), in_out_data[in_out_value-1].label, precio, eating_data[eating_value-1].label, status_data[status_value-1].label]);
+            });*/
+            //console.log(`INSERT INTO plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
+            await db.runAsync(`INSERT INTO plans (plan, location, indoor_outdoor, price, eating, done) VALUES ('${name}', '${lugar.trim()}', '${in_out_data[in_out_value-1].label}', ${precio}, '${eating_data[eating_value-1].label}', '${status_data[status_value-1].label}');`);
 
             Alert.alert(`Plan '${name}' successfully added!`);
             navigation.navigate('Plans');
